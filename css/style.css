@@ -1,0 +1,396 @@
+/* ==========================================================================
+   FIT3179 Data Visualisation 2 - Cycling for Transport in Greater Melbourne
+   Main Stylesheet: Responsive Pure.css Integration & Academic Design System
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --primary-color: #059669;
+  --primary-dark: #065f46;
+  --primary-light: #ecfdf5;
+  --secondary-color: #0284c7;
+  --secondary-dark: #0369a1;
+  --accent-amber: #d97706;
+  --accent-rose: #e11d48;
+  --bg-color: #f8fafc;
+  --card-bg: #ffffff;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+  --border-color: #e2e8f0;
+  --border-light: #f1f5f9;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --max-width: 1140px;
+}
+
+/* Base & Reset */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  font-family: var(--font-body);
+  color: var(--text-main);
+  background-color: var(--bg-color);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: #0f172a;
+  margin-top: 0;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+h1 { font-size: 2.75rem; letter-spacing: -0.03em; }
+h2 { font-size: 1.95rem; letter-spacing: -0.02em; margin-bottom: 0.75rem; }
+h3 { font-size: 1.35rem; letter-spacing: -0.01em; margin-bottom: 0.5rem; }
+h4 { font-size: 1.1rem; font-weight: 600; }
+
+p {
+  margin: 0 0 1.2rem 0;
+  font-size: 1rem;
+  color: #334155;
+}
+
+p.lead {
+  font-size: 1.15rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #334155;
+}
+
+a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s ease-in-out;
+}
+
+a:hover {
+  color: var(--secondary-dark);
+  text-decoration: underline;
+}
+
+/* Container Structure */
+.page-wrapper {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header & Hero Section */
+.hero-header {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: #ffffff;
+  padding: 4rem 1.5rem 3.5rem 1.5rem;
+  border-bottom: 4px solid var(--primary-color);
+  margin-bottom: 2.5rem;
+}
+
+.hero-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #6ee7b7;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.825rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.hero-header h1 {
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: #94a3b8;
+  max-width: 820px;
+  margin-bottom: 1.5rem;
+  line-height: 1.55;
+}
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  font-size: 0.875rem;
+  color: #cbd5e1;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.hero-meta span strong {
+  color: #ffffff;
+}
+
+/* Key Performance Indicators (KPIs) */
+.kpi-grid {
+  margin-bottom: 2.5rem;
+}
+
+.kpi-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kpi-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.kpi-label {
+  font-size: 0.825rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+
+.kpi-value {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.1;
+  margin-bottom: 0.35rem;
+}
+
+.kpi-value.accent-green { color: var(--primary-color); }
+.kpi-value.accent-blue { color: var(--secondary-color); }
+.kpi-value.accent-amber { color: var(--accent-amber); }
+.kpi-value.accent-rose { color: var(--accent-rose); }
+
+.kpi-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0;
+}
+
+/* Section Containers */
+.story-section {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2.25rem 2rem;
+  margin-bottom: 2.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.section-header {
+  border-bottom: 2px solid var(--border-light);
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+.section-tag {
+  display: inline-block;
+  font-size: 0.775rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--primary-color);
+  background-color: var(--primary-light);
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+}
+
+/* Narrative Storytelling Callouts */
+.narrative-block {
+  padding: 0.5rem 0.75rem;
+}
+
+.callout-box {
+  background-color: #f8fafc;
+  border-left: 4px solid var(--primary-color);
+  padding: 1rem 1.25rem;
+  border-radius: 0 8px 8px 0;
+  margin: 1.25rem 0;
+  font-size: 0.95rem;
+}
+
+.callout-box.info {
+  border-left-color: var(--secondary-color);
+  background-color: #f0f9ff;
+}
+
+.callout-box.warning {
+  border-left-color: var(--accent-amber);
+  background-color: #fffbeb;
+}
+
+.callout-box strong {
+  color: #0f172a;
+}
+
+/* Visualisation Containers */
+.vis-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.vis-container {
+  width: 100%;
+  min-height: 380px;
+  position: relative;
+}
+
+.vis-caption {
+  font-size: 0.825rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-light);
+  padding-top: 0.75rem;
+  margin-top: 0.75rem;
+  font-style: italic;
+}
+
+/* Framework Box (Munzner What/Why/How) */
+.framework-card {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 1.75rem;
+  margin-top: 2rem;
+}
+
+.framework-card h3 {
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.framework-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.framework-item {
+  background: #ffffff;
+  padding: 1.25rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.framework-item h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--primary-dark);
+}
+
+.framework-item p {
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Footer Section */
+.footer-section {
+  background: #0f172a;
+  color: #94a3b8;
+  padding: 3.5rem 1.5rem 2.5rem 1.5rem;
+  margin-top: 4rem;
+  border-top: 1px solid #1e293b;
+}
+
+.footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.footer-inner h3 {
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+
+.footer-inner p, .footer-inner li {
+  font-size: 0.875rem;
+  color: #94a3b8;
+}
+
+.footer-inner a {
+  color: #38bdf8;
+}
+
+.footer-inner a:hover {
+  color: #7dd3fc;
+}
+
+.footer-bottom {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #1e293b;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+/* Pure.css Overrides & Responsive Adjustments */
+.pure-g {
+  letter-spacing: normal !important;
+}
+
+.pure-g > [class*="pure-u"] {
+  font-family: var(--font-body);
+}
+
+.gap-sm { gap: 0.75rem; }
+.gap-md { gap: 1.25rem; }
+.gap-lg { gap: 2rem; }
+
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+
+/* Responsive Media Queries */
+@media screen and (max-width: 768px) {
+  h1 { font-size: 2.1rem; }
+  h2 { font-size: 1.6rem; }
+  .story-section { padding: 1.5rem 1rem; }
+  .hero-header { padding: 2.5rem 1rem; }
+  .vis-container { min-height: 320px; }
+}
+

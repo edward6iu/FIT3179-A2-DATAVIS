@@ -1,0 +1,15 @@
+id,name,lat,lon,corridor,daily_avg,am_peak,pm_peak,growth_pct
+BC01,Princes Bridge (Swanston St),-37.8196,144.9682,CBD Gateway,5980,1280,1150,14.2
+BC02,St Kilda Rd (Linlithgow Ave),-37.8248,144.9721,Southern Gateway,5420,1140,990,28.5
+BC03,Capital City Trail (Morell Bridge),-37.8285,144.988,Yarra Corridor,4120,780,820,8.1
+BC04,"Upfield Path (Park St, Brunswick)",-37.779,144.961,Northern Arterial,3890,910,880,19.4
+BC05,Footscray Rd / Moonee Ponds Ck,-37.8115,144.935,Western Arterial,2750,620,580,16.0
+BC06,"Canning St (Pigdon St, Carlton N)",-37.785,144.976,Inner-North Spine,3640,890,790,11.2
+BC07,Main Yarra Trail (Dights Falls),-37.7985,145.002,Yarra Corridor,3150,560,610,9.5
+BC08,Albert Rd / Moray St (Sth Melb),-37.836,144.964,Inner-South Spine,2480,510,490,22.0
+BC09,Hawthorn Bridge (Bridge Rd),-37.821,145.016,Eastern Arterial,2920,680,630,12.8
+BC10,Merri Creek Trail (Northcote),-37.773,144.992,North-East Corridor,2240,410,450,7.4
+BC11,Bay Trail (St Kilda Sea Baths),-37.866,144.972,Coastal Recreation,4650,420,760,15.3
+BC12,Gardiners Creek Trail (Kooyong),-37.847,145.038,South-East Arterial,2180,440,420,10.1
+BC13,Maribyrnong River (Hopetoun Br),-37.802,144.908,Western Arterial,1940,390,370,13.5
+BC14,Dynon Rd Path (West Melbourne),-37.805,144.928,Western Arterial,1680,360,340,8.0

@@ -1,0 +1,89 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Advanced Idiom 5 - Proportional symbol map. Super Tuesday / automated counter sites sized (sqrt scale, so area is proportional to volume) by average daily riders and coloured by 5-year growth. A slider filters out low-volume sites. Projection centred on the Melbourne CBD with width-linked scale for responsiveness.",
+  "title": {
+    "text": "Bridges into the CBD carry the heaviest bike traffic",
+    "subtitle": "Counter sites sized by average daily riders, coloured by 5-year growth. Drag the slider to hide quieter sites."
+  },
+  "width": "container",
+  "height": 440,
+  "projection": {
+    "type": "mercator",
+    "center": [144.9631, -37.8136],
+    "scale": {"expr": "max(width, 320) * 260"},
+    "translate": {"expr": "[width / 2, height / 2]"}
+  },
+  "params": [
+    {
+      "name": "minVolume",
+      "value": 0,
+      "bind": {"input": "range", "min": 0, "max": 5000, "step": 250, "name": "Minimum daily riders "}
+    }
+  ],
+  "layer": [
+    {
+      "data": {
+        "url": "data/melbourne_lgas.geojson",
+        "format": {"type": "json", "property": "features"}
+      },
+      "mark": {"type": "geoshape", "fill": "#f1f5f9", "stroke": "#cbd5e1", "strokeWidth": 0.8}
+    },
+    {
+      "data": {
+        "url": "data/cycling_routes.geojson",
+        "format": {"type": "json", "property": "features"}
+      },
+      "mark": {"type": "geoshape", "filled": false, "stroke": "#94a3b8", "strokeWidth": 1, "opacity": 0.5}
+    },
+    {
+      "data": {"url": "data/bike_counters.csv"},
+      "transform": [{"filter": "datum.daily_avg >= minVolume"}],
+      "mark": {"type": "circle", "opacity": 0.85, "stroke": "#0f172a", "strokeWidth": 1, "cursor": "pointer"},
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"},
+        "size": {
+          "field": "daily_avg",
+          "type": "quantitative",
+          "title": "Avg daily riders",
+          "scale": {"type": "sqrt", "domain": [0, 6000], "range": [0, 900]},
+          "legend": {"orient": "bottom-right", "fillColor": "#ffffffee", "padding": 8, "cornerRadius": 6, "values": [1500, 3000, 6000], "format": ","}
+        },
+        "color": {
+          "field": "growth_pct",
+          "type": "quantitative",
+          "title": "5-yr growth (%)",
+          "scale": {"scheme": "greens", "domain": [5, 30]},
+          "legend": {"orient": "bottom-left", "fillColor": "#ffffffee", "padding": 8, "cornerRadius": 6}
+        },
+        "order": {"field": "daily_avg", "sort": "descending"},
+        "tooltip": [
+          {"field": "name", "type": "nominal", "title": "Counter site"},
+          {"field": "corridor", "type": "nominal", "title": "Corridor"},
+          {"field": "daily_avg", "type": "quantitative", "title": "Avg daily riders", "format": ","},
+          {"field": "am_peak", "type": "quantitative", "title": "AM peak hour", "format": ","},
+          {"field": "pm_peak", "type": "quantitative", "title": "PM peak hour", "format": ","},
+          {"field": "growth_pct", "type": "quantitative", "title": "5-yr growth (%)", "format": ".1f"}
+        ]
+      }
+    },
+    {
+      "data": {"values": [{"lon": 144.9682, "lat": -37.8196, "text": "Princes Bridge: ~5,980 riders/day"}]},
+      "mark": {"type": "text", "align": "left", "dx": 24, "dy": -24, "fontSize": 10.5, "fontWeight": 700, "fill": "#064e3b"},
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"},
+        "text": {"field": "text", "type": "nominal"}
+      }
+    },
+    {
+      "data": {"values": [{"lon": 144.9721, "lat": -37.8248, "text": "St Kilda Rd: fastest growth (+28.5%)"}]},
+      "mark": {"type": "text", "align": "left", "dx": 24, "dy": 22, "fontSize": 10.5, "fontWeight": 700, "fill": "#064e3b"},
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"},
+        "text": {"field": "text", "type": "nominal"}
+      }
+    }
+  ]
+}

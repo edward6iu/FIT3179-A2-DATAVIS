@@ -1,0 +1,84 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Advanced Idiom 4 - Bump chart. Annual rank of eight inner-Melbourne councils by spending on cycling infrastructure. Ranks are computed inside the spec with a window rank transform, so the CSV only stores raw spend ($m). Hover a line to highlight one council.",
+  "title": {
+    "text": "Merri-bek climbed from 4th to 2nd in cycling infrastructure spending",
+    "subtitle": "Rank by annual spend on cycling infrastructure, 2019–2024 (1 = highest). Hover a line to highlight it."
+  },
+  "width": "container",
+  "height": 360,
+  "padding": {"left": 5, "right": 95, "top": 5, "bottom": 5},
+  "data": {"url": "data/lga_infrastructure_investment.csv"},
+  "transform": [
+    {
+      "window": [{"op": "rank", "as": "rank"}],
+      "groupby": ["year"],
+      "sort": [{"field": "investment_m", "order": "descending"}]
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "title": null,
+      "axis": {"labelAngle": 0, "domain": false, "ticks": false, "grid": true, "gridDash": [2, 3]}
+    },
+    "y": {
+      "field": "rank",
+      "type": "ordinal",
+      "title": "Rank",
+      "axis": {"domain": false, "ticks": false, "labelExpr": "'#' + datum.value"}
+    },
+    "color": {
+      "field": "lga",
+      "type": "nominal",
+      "legend": null,
+      "scale": {
+        "domain": ["Melbourne", "Merri-bek", "Port Phillip", "Yarra", "Darebin", "Maribyrnong", "Stonnington", "Boroondara"],
+        "range": ["#0f172a", "#059669", "#0284c7", "#7c3aed", "#d97706", "#e11d48", "#64748b", "#a16207"]
+      }
+    },
+    "opacity": {
+      "condition": {"param": "lgaHover", "empty": true, "value": 1},
+      "value": 0.15
+    }
+  },
+  "layer": [
+    {
+      "params": [
+        {
+          "name": "lgaHover",
+          "select": {"type": "point", "on": "pointerover", "clear": "pointerout", "fields": ["lga"], "nearest": true}
+        }
+      ],
+      "mark": {"type": "line", "strokeWidth": 3, "interpolate": "monotone"}
+    },
+    {
+      "mark": {"type": "circle", "size": 110, "stroke": "#ffffff", "strokeWidth": 1.5},
+      "encoding": {
+        "tooltip": [
+          {"field": "lga", "type": "nominal", "title": "LGA"},
+          {"field": "year", "type": "ordinal", "title": "Year"},
+          {"field": "rank", "type": "ordinal", "title": "Rank"},
+          {"field": "investment_m", "type": "quantitative", "title": "Spend ($m)", "format": "$.1f"}
+        ]
+      }
+    },
+    {
+      "transform": [{"filter": "datum.year == 2024"}],
+      "mark": {"type": "text", "align": "left", "dx": 10, "fontSize": 11, "fontWeight": 600},
+      "encoding": {"text": {"field": "lga", "type": "nominal"}}
+    },
+    {
+      "data": {"values": [{"year": 2022, "rank": 2, "text": "Merri-bek overtakes Port Phillip & Yarra"}]},
+      "mark": {"type": "text", "dy": -16, "fontSize": 10.5, "fontStyle": "italic", "fill": "#047857"},
+      "encoding": {
+        "x": {"field": "year", "type": "ordinal"},
+        "y": {"field": "rank", "type": "ordinal"},
+        "text": {"field": "text", "type": "nominal"},
+        "color": {"value": "#047857"},
+        "opacity": {"value": 1}
+      }
+    }
+  ]
+}

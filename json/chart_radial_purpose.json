@@ -1,0 +1,59 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Advanced Idiom 8 - Radial (rose / coxcomb) chart. Angle and radius both encode share of annual bicycle trips by purpose (sqrt radius scale so wedge area stays proportional). Labels sit just outside each wedge.",
+  "title": {
+    "text": "Most bike trips are not commutes",
+    "subtitle": "Share of annual bicycle trips in Victoria by main purpose."
+  },
+  "width": "container",
+  "height": 360,
+  "layer": [
+    {
+      "data": {"url": "data/trip_purpose_radial.csv"},
+      "encoding": {
+        "theta": {"field": "share_pct", "type": "quantitative", "stack": true},
+        "radius": {
+          "field": "share_pct",
+          "type": "quantitative",
+          "scale": {"type": "sqrt", "zero": true, "rangeMin": 28}
+        },
+        "order": {"field": "order", "type": "quantitative"}
+      },
+      "layer": [
+        {
+          "mark": {"type": "arc", "innerRadius": 28, "stroke": "#ffffff", "strokeWidth": 2, "padAngle": 0.01},
+          "encoding": {
+            "color": {
+              "field": "purpose",
+              "type": "nominal",
+              "title": "Trip purpose",
+              "sort": ["Recreation & Exercise", "Work Commuting", "Utility & Shopping", "Social & Dining", "Education & School"],
+              "scale": {
+                "domain": ["Recreation & Exercise", "Work Commuting", "Utility & Shopping", "Social & Dining", "Education & School"],
+                "range": ["#064e3b", "#059669", "#34d399", "#7dd3fc", "#0284c7"]
+              },
+              "legend": {"orient": "bottom", "direction": "horizontal", "columns": 3}
+            },
+            "tooltip": [
+              {"field": "purpose", "type": "nominal", "title": "Purpose"},
+              {"field": "share_pct", "type": "quantitative", "title": "Share of trips (%)", "format": ".1f"},
+              {"field": "trips_annual_million", "type": "quantitative", "title": "Trips per year (m)", "format": ".1f"},
+              {"field": "avg_distance_km", "type": "quantitative", "title": "Avg distance (km)", "format": ".1f"}
+            ]
+          }
+        },
+        {
+          "mark": {"type": "text", "radiusOffset": 16, "fontSize": 11, "fontWeight": 600, "fill": "#0f172a"},
+          "encoding": {
+            "text": {"field": "short_label", "type": "nominal"}
+          }
+        }
+      ]
+    },
+    {
+      "data": {"values": [{"text": "Commuting = 26.5%; the other 73.5% is fitness, shopping, social & school"}]},
+      "mark": {"type": "text", "x": 0, "y": 0, "align": "left", "baseline": "top", "fontSize": 10.5, "fontStyle": "italic", "fill": "#047857"},
+      "encoding": {"text": {"field": "text", "type": "nominal"}}
+    }
+  ]
+}
