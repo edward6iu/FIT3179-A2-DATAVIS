@@ -99,4 +99,32 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
       });
   });
+
+  // Sticky Navigation Active State (ScrollSpy)
+  const navLinks = document.querySelectorAll(".section-nav a");
+  const sections = document.querySelectorAll("section.story-section");
+
+  if ("IntersectionObserver" in window && sections.length > 0) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute("id");
+            navLinks.forEach((link) => {
+              if (link.getAttribute("href") === `#${id}`) {
+                link.classList.add("active");
+              } else {
+                link.classList.remove("active");
+              }
+            });
+          }
+        });
+      },
+      {
+        rootMargin: "-20% 0px -65% 0px"
+      }
+    );
+
+    sections.forEach((sec) => observer.observe(sec));
+  }
 });
