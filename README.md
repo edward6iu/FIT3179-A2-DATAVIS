@@ -3,10 +3,10 @@
 
 - **Author:** Yuxiang Liu (Edward)
 - **Student ID:** 3311 6091
-- **GitHub Repository:** [https://github.com/edward6iu/fit3179-cycling-visualisation](https://github.com/edward6iu/fit3179-cycling-visualisation)
-- **Live Visualisation (GitHub Pages):** [https://edward6iu.github.io/fit3179-cycling-visualisation/](https://edward6iu.github.io/fit3179-cycling-visualisation/)
+- **GitHub Repository:** [https://github.com/edward6iu/FIT3179-A2-DATAVIS](https://github.com/edward6iu/FIT3179-A2-DATAVIS)
+- **Live Visualisation (GitHub Pages):** [https://edward6iu.github.io/FIT3179-A2-DATAVIS/](https://edward6iu.github.io/FIT3179-A2-DATAVIS/)
 
-[![GitHub Pages](https://img.shields.io/badge/Deployment-GitHub%20Pages-brightgreen)](https://edward6iu.github.io/fit3179-cycling-visualisation/)
+[![GitHub Pages](https://img.shields.io/badge/Deployment-GitHub%20Pages-brightgreen)](https://edward6iu.github.io/FIT3179-A2-DATAVIS/)
 [![Vega-Lite v5](https://img.shields.io/badge/Vega--Lite-v5.21.0-blue)](https://vega.github.io/vega-lite/)
 [![Pure.css](https://img.shields.io/badge/CSS%20Framework-Pure.css%20v3.0-navy)](https://purecss.io/)
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
@@ -19,14 +19,12 @@ This project is an advanced visual analytics web application investigating the s
 
 It explores the friction between Melbourne's high private automobile dependency and its burgeoning active transport network, highlighting spatial inequities between inner and outer municipalities, temporal traffic patterns, the psychological impact of infrastructure design on rider confidence, and the systemic "gender gap" in cycling participation.
 
-The project strictly fulfills all requirements of the **FIT3179 Data Visualisation 2** assignment specification and rubric, achieving a **High Distinction (HD)** standard across all assessment categories.
-
 ---
 
 ## 2. Directory Structure
 
 ```text
-fit3179-cycling-visualisation/
+FIT3179-A2-DATAVIS/
 ├── index.html                           # Master single scrollable web page
 ├── css/
 │   └── style.css                        # Pure.css integration, typography, responsive layout
@@ -105,7 +103,7 @@ Because modern browsers enforce CORS restrictions when fetching external `.json`
 
 ```powershell
 # Navigate to the project root directory
-cd fit3179-cycling-visualisation
+cd FIT3179-A2-DATAVIS
 
 # Start Python's built-in HTTP server
 python -m http.server 8000
@@ -113,19 +111,19 @@ python -m http.server 8000
 Open your browser and navigate to: **`http://localhost:8000`**
 
 ### Method B: GitHub Pages Deployment
-1. Create a public repository on your GitHub account (e.g., `fit3179-cycling-visualisation`).
+1. Create a public repository on your GitHub account (e.g., `FIT3179-A2-DATAVIS`).
 2. Push all repository files (`index.html`, `css/`, `js/`, `json/`, `data/`, `README.md`) to the `main` branch:
    ```bash
    git init
    git add .
    git commit -m "feat: complete FIT3179 cycling visualisation project scaffold"
    git branch -M main
-   git remote add origin https://github.com/edward6iu/fit3179-cycling-visualisation.git
+   git remote add origin https://github.com/edward6iu/FIT3179-A2-DATAVIS.git
    git push -u origin main
    ```
 3. Navigate to **Settings > Pages** in your GitHub repository.
 4. Under **Source**, select `Deploy from a branch`, choose branch `main` and folder `/ (root)`, then click **Save**.
-5. Your project will be live at: **`https://edward6iu.github.io/fit3179-cycling-visualisation/`**
+5. Your project will be live at: **`https://edward6iu.github.io/FIT3179-A2-DATAVIS/`**
 
 ---
 
