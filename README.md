@@ -318,4 +318,4 @@ Sources for all 11 figures are detailed below, linked in each caption in the vis
 
 ## Generative AI declaration
 
-Gemini 3.8 Flash was used to assist with building the website's styles CSS code alongside formatting the references and compiling them into neat formats, and was also used to scrape data from [Bicycle Network](https://bicyclenetwork.com.au/) which had the dataset locked behind a subscription.
+Gemini 3.8 Flash was used to assist with building the website's styles CSS code, formatting and making the README formatting nice and succinct, compiling all references into neat formats, and scraping data from [Bicycle Network](https://bicyclenetwork.com.au/) which had the dataset locked behind a subscription.
