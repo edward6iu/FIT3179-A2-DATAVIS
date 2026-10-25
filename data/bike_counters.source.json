@@ -1,0 +1,41 @@
+{
+  "title": "Annual Bike Counts (Super Tuesday)",
+  "publisher": "City of Melbourne",
+  "data_provider": "Bicycle Network Australia",
+  "dataset_url": "https://data.melbourne.vic.gov.au/explore/dataset/annual-bike-counts-super-tuesday/",
+  "api_export_url": "https://data.melbourne.vic.gov.au/api/explore/v2.1/catalog/datasets/annual-bike-counts-super-tuesday/exports/json",
+  "field_metadata_url": "https://data.melbourne.vic.gov.au/api/datasets/1.0/annual-bike-counts-super-tuesday/attachments/super_tuesday_bike_counts_metadata_pdf/",
+  "methodology_url": "https://bicyclenetwork.com.au/our-services/transport-surveys-and-data/super-counts/",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "retrieved": "2026-10-24",
+  "source_record_count": 352,
+  "records_by_year": {
+    "2010": 40,
+    "2011": 44,
+    "2012": 40,
+    "2013": 44,
+    "2014": 46,
+    "2015": 46,
+    "2016": 46,
+    "2017": 46
+  },
+  "selected_year": 2017,
+  "selected_sites": 46,
+  "raw_snapshot": "sources/super_tuesday_raw.json",
+  "raw_sha256": "cf2cedf50a5a56c628122ed6bae527d73c85fb37988a71443d91859cb5069565",
+  "processing": [
+    "Select all 46 survey sites from the 2017 Super Tuesday survey.",
+    "Retain published site_id, latitude, longitude and intersection description.",
+    "Map published total to count_7_9am matching the sum of all eight morning 15-minute intervals.",
+    "Use a linear zero-based Vega-Lite size scale so circle area is proportional to cyclist count."
+  ],
+  "scope": "Morning peak commuter survey (7:00 am to 9:00 am) across 46 City of Melbourne intersections.",
+  "boundary": {
+    "dataset_url": "https://data.melbourne.vic.gov.au/explore/dataset/municipal-boundary/",
+    "export_url": "https://data.melbourne.vic.gov.au/api/explore/v2.1/catalog/datasets/municipal-boundary/exports/geojson",
+    "license": "CC BY 4.0",
+    "retrieved": "2026-10-24",
+    "processing": "Coordinates retained; ring winding normalised for D3/Vega spherical rendering."
+  }
+}
