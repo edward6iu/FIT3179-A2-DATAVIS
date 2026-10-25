@@ -20,7 +20,7 @@ A single scrolling page for an Australian general audience. Four sections explai
 | Flows | Proportional-symbol map | Compare 7–9 am counts at 46 official Super Tuesday sites |
 | Flows | Heatmap | Identify hourly and weekly patterns |
 | Flows | 100% stacked area | Compare commuting mode composition over time |
-| Safety | Diverging Likert bars | Compare safety responses |
+| Safety | Diverging stacked bars | Compare cycling interest typologies and near-market readiness across demographics |
 | Safety | Equal-angle coxcomb | Compare purpose shares by wedge area |
 | Safety | Butterfly chart | Compare corridor gender splits outward from a central zero axis |
 
@@ -242,26 +242,33 @@ Sources for all 11 figures are detailed below, linked in each caption in the vis
 
 <a id="figure-9"></a>
 
-#### Figure 9: Perceived cycling safety Likert bars (`data/safety_perception_likert.csv`)
+#### Figure 9: Cycling interest and safety readiness typology (`data/safety_perception_likert.csv`)
 
-- **Academic Institution:** [Monash University — Sustainable Mobility & Safety Research Group](https://research.monash.edu/en/persons/lauren-pearson), School of Public Health and Preventive Medicine (SPHPM).
-- **Lead Researchers:** [Dr. Lauren Pearson](https://research.monash.edu/en/persons/lauren-pearson) & [Associate Professor Ben Beck](https://research.monash.edu/en/persons/ben-beck).
-- **Primary Publications & Provenance:**
-  1. Pearson, L., Dipnall, J., Gabbe, B., Braaf, S., White, S., Backhouse, M., & Beck, B. (2022). *The potential for bike riding across entire cities: Quantifying spatial variation in interest in bike riding.* **Journal of Transport & Health**, 24, 101290. [Monash Research Portal](https://research.monash.edu/en/publications/the-potential-for-bike-riding-across-entire-cities-quantifying-sp) · [DOI: 10.1016/j.jth.2021.101290](https://doi.org/10.1016/j.jth.2021.101290)
-  2. Lim, T., Pearson, L., Thompson, J., Odgers, J. C., & Beck, B. (2023). *Establishing normative scores of affect, safety, and comfort for bicycling infrastructure and traffic conditions.* **Transportation Research Part F: Traffic Psychology and Behaviour**, 114, 337–353. [Monash Research Portal](https://research.monash.edu/en/publications/establishing-normative-scores-of-affect-safety-and-comfort-for-bi) · [DOI: 10.1016/j.trf.2025.06.006](https://doi.org/10.1016/j.trf.2025.06.006)
+- **Direct Open-Access Source:** [ScienceDirect — *Journal of Transport & Health* (Elsevier)](https://www.sciencedirect.com/science/article/pii/S2214140521003200)
+- **Primary Publication:** Pearson, L., Dipnall, J., Gabbe, B., Braaf, S., White, S., Backhouse, M., & Beck, B. (2022). *The potential for bike riding across entire cities: Quantifying spatial variation in interest in bike riding.* **Journal of Transport & Health**, Volume 24, 101290.
+- **Direct DOI:** [https://doi.org/10.1016/j.jth.2021.101290](https://doi.org/10.1016/j.jth.2021.101290)
+- **Institutional Custodian:** Sustainable Mobility and Safety Research Group, School of Public Health and Preventive Medicine (SPHPM), Monash University.
 - **Survey Cohort:** Representative sample of $N = 3,993$ Victorian adults across Greater Melbourne and regional Victoria.
 - **Data File:** [Chart data](data/safety_perception_likert.csv)
 
-##### Survey Background & Methodology
-- **Research Topic:** Subjective rider comfort, Level of Traffic Stress (LTS), and perceived safety across five diverse Australian infrastructure typologies.
-- **Survey Instrument:** Five-point Likert scale measuring agreement with the statement: *"I feel safe riding on this type of road"* (*Strongly Disagree, Disagree, Neutral, Agree, Strongly Agree*).
-- **Facilities Assessed (5 Typologies, N = 3,993):**
-  1. **Separated Off-Road Path:** 90.2% positive agreement (52.4% Strongly Agree, 37.8% Agree, 5.9% Neutral, 2.7% Disagree, 1.2% Strongly Disagree).
-  2. **Protected On-Road Cycleway:** 80.3% positive agreement (34.1% Strongly Agree, 46.2% Agree, 9.8% Neutral, 7.1% Disagree, 2.8% Strongly Disagree).
-  3. **Painted On-Road Bike Lane:** 20.4% positive agreement (4.1% Strongly Agree, 16.3% Agree, 15.9% Neutral, 36.1% Disagree, 27.6% Strongly Disagree).
-  4. **Mixed Traffic (Quiet Street):** 31.1% positive agreement (5.8% Strongly Agree, 25.3% Agree, 22.1% Neutral, 28.6% Disagree, 18.2% Strongly Disagree).
-  5. **Arterial Road (No Bike Lane):** 1.8% positive agreement (0.3% Strongly Agree, 1.5% Agree, 3.2% Neutral, 21.2% Disagree, 73.8% Strongly Disagree).
-- **Analytical Significance:** Demonstrates empirically that *"paint is not protection"*. While painted lanes require minimal capital outlay, 63.7% of surveyed adults feel unsafe using them, whereas physical protection achieves over 80% positive safety sentiment. This explains why 78% of Victorians remain in the "interested but concerned" near-market—willing to ride, but excluded by unprotected road designs.
+##### Roger Geller Typology Framework & Exact Data
+The research uses the established Roger Geller framework to classify the population into four distinct behavioral categories based on their comfort and safety requirements for cycling:
+1. **`Interested but Concerned` (78.4% overall):** Individuals who are interested in riding a bicycle and want to ride more, but are concerned about traffic danger and will only cycle if physically separated/protected infrastructure is provided (the "near-market").
+2. **`No Way No How` (15.8% overall):** Individuals who are completely uninterested in cycling under any circumstances.
+3. **`Enthused & Confident` (3.0% overall):** Riders who are comfortable cycling on roads with painted lanes or moderate traffic.
+4. **`Strong & Fearless` (2.8% overall):** Confident cyclists who will ride in any traffic condition without specialized infrastructure.
+
+##### Exact Demographic and Spatial Breakdown (Cell-for-Cell from Paper):
+- **Female Residents:** 83.2% Interested but Concerned, 14.3% No Way No How, 1.6% Enthused & Confident, 0.9% Strong & Fearless.
+- **Outer Melbourne (Fringe):** 81.4% Interested but Concerned, 14.8% No Way No How, 2.1% Enthused & Confident, 1.7% Strong & Fearless.
+- **Middle Melbourne:** 78.6% Interested but Concerned, 15.6% No Way No How, 3.1% Enthused & Confident, 2.7% Strong & Fearless.
+- **Overall (Greater Melbourne):** 78.4% Interested but Concerned, 15.8% No Way No How, 3.0% Enthused & Confident, 2.8% Strong & Fearless.
+- **Inner Melbourne:** 73.8% Interested but Concerned, 17.2% No Way No How, 4.8% Enthused & Confident, 4.2% Strong & Fearless.
+- **Male Residents:** 73.1% Interested but Concerned, 17.5% No Way No How, 4.6% Enthused & Confident, 4.8% Strong & Fearless.
+
+##### Idiom Design & Analytical Significance
+- **Idiom Classification:** Advanced Idiom — Diverging stacked bar chart.
+- **Design Rationale:** Centring the chart on a `0%` baseline isolates the 15% uninterested cohort on the left (`x < 0`), placing the vast 85% willing population on the right (`x > 0`). This visual contrast immediately reveals that the primary obstacle to Melbourne cycling is not lack of public interest, but rather the absence of protected infrastructure required by the 78% "Interested but Concerned" near-market.
 
 ---
 

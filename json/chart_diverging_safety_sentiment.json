@@ -1,51 +1,34 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Advanced Idiom 7 - Diverging stacked bar (Likert) chart. Responses to 'I feel safe riding on this type of road'. Bars are centred on the middle of the Neutral category; offsets are computed in-spec (calculate + joinaggregate + window), so the CSV only needs raw percentages. Road types are sorted by total positive agreement.",
+  "description": "Advanced Idiom - Diverging Stacked Bar Chart. Community cycling interest and safety barriers across Melbourne demographics using the Roger Geller typology from Monash University active transport research (Pearson et al. 2022, Journal of Transport & Health, ScienceDirect, N = 3,993). Centred at 0% to contrast the uninterested cohort against the massive 'interested but concerned' near-market.",
   "title": {
-    "text": "Separation feels safe; painted lines and busy roads do not",
-    "subtitle": "\"I feel safe riding on this type of road\" \u2013 Monash University active transport study (Pearson et al. / Lim et al., N = 3,993)."
+    "text": "78% of Melburnians want to ride, but require safe, protected infrastructure",
+    "subtitle": "Victorian adult cycling interest typology across demographics \u2013 Pearson et al. (2022, ScienceDirect, N = 3,993)."
   },
   "width": "container",
-  "height": 280,
+  "height": 290,
   "data": {
     "url": "data/safety_perception_likert.csv"
   },
   "transform": [
     {
-      "calculate": "datum.order <= 2 ? datum.pct : (datum.order == 3 ? datum.pct / 2 : 0)",
-      "as": "neg_part"
+      "calculate": "datum.order == 1 ? -datum.pct : 0",
+      "as": "neg_start"
     },
     {
-      "calculate": "datum.order >= 4 ? datum.pct : 0",
-      "as": "pos_part"
-    },
-    {
-      "joinaggregate": [
-        {
-          "op": "sum",
-          "field": "neg_part",
-          "as": "offset"
-        },
-        {
-          "op": "sum",
-          "field": "pos_part",
-          "as": "positive_total"
-        }
-      ],
-      "groupby": [
-        "facility"
-      ]
+      "calculate": "datum.order >= 2 ? datum.pct : 0",
+      "as": "pos_pct"
     },
     {
       "window": [
         {
           "op": "sum",
-          "field": "pct",
-          "as": "cum"
+          "field": "pos_pct",
+          "as": "pos_cum"
         }
       ],
       "groupby": [
-        "facility"
+        "cohort"
       ],
       "sort": [
         {
@@ -59,143 +42,137 @@
       ]
     },
     {
-      "calculate": "datum.cum - datum.offset",
-      "as": "x_end"
-    },
-    {
-      "calculate": "datum.x_end - datum.pct",
+      "calculate": "datum.order == 1 ? -datum.pct : (datum.pos_cum - datum.pct)",
       "as": "x_start"
     },
     {
-      "calculate": "datum.order == 5 && datum.facility == 'Painted On-Road Bike Lane' ? 'Only 20% feel safe' : (datum.order == 5 && datum.facility == 'Arterial Road (No Bike Lane)' ? '95% feel unsafe' : '')",
+      "calculate": "datum.order == 1 ? 0 : datum.pos_cum",
+      "as": "x_end"
+    },
+    {
+      "calculate": "datum.order == 4 && datum.cohort == 'Female Residents' ? '83.2% near-market (highest)' : (datum.order == 4 && datum.cohort == 'Overall (Greater Melbourne)' ? '78.4% want to ride if safe' : (datum.order == 4 && datum.cohort == 'Outer Melbourne' ? '81.4% latent interest' : ''))",
       "as": "callout"
     }
   ],
   "layer": [
     {
       "mark": {
+        "type": "rule",
+        "color": "#cbd5e1",
+        "strokeWidth": 1.5,
+        "strokeDash": [
+          3,
+          3
+        ]
+      },
+      "encoding": {
+        "x": {
+          "datum": 0
+        }
+      }
+    },
+    {
+      "mark": {
         "type": "bar",
         "height": {
-          "band": 0.7
-        }
+          "band": 0.65
+        },
+        "cornerRadius": 2
       },
       "encoding": {
         "y": {
-          "field": "facility",
+          "field": "cohort",
           "type": "nominal",
           "title": null,
-          "sort": {
-            "field": "positive_total",
-            "op": "max",
-            "order": "descending"
-          },
+          "sort": [
+            "Female Residents",
+            "Outer Melbourne",
+            "Middle Melbourne",
+            "Overall (Greater Melbourne)",
+            "Inner Melbourne",
+            "Male Residents"
+          ],
           "axis": {
             "ticks": false,
             "domain": false,
-            "labelLimit": 170
+            "labelLimit": 180,
+            "labelFontWeight": 600
           }
         },
         "x": {
           "field": "x_start",
           "type": "quantitative",
-          "title": "\u2190 Feel unsafe          Feel safe \u2192",
+          "title": "\u2190 Uninterested ('No Way No How')  |  Potential & Active Riders ('Interested but Concerned' / Confident) \u2192",
           "scale": {
             "domain": [
-              -100,
-              100
+              -25,
+              115
             ]
           },
           "axis": {
-            "labelExpr": "abs(datum.value) + '%'",
             "values": [
-              -100,
-              -50,
+              -20,
+              -10,
               0,
-              50,
-              100
-            ]
+              20,
+              40,
+              60,
+              80
+            ],
+            "labelExpr": "abs(datum.value) + '%'"
           }
         },
         "x2": {
           "field": "x_end"
         },
         "color": {
-          "field": "sentiment",
+          "field": "typology",
           "type": "nominal",
-          "title": null,
+          "title": "Geller Cycling Typology",
           "sort": [
-            "Strongly Disagree",
-            "Disagree",
-            "Neutral",
-            "Agree",
-            "Strongly Agree"
+            "No Way No How",
+            "Interested but Concerned",
+            "Enthused & Confident",
+            "Strong & Fearless"
           ],
           "scale": {
             "domain": [
-              "Strongly Disagree",
-              "Disagree",
-              "Neutral",
-              "Agree",
-              "Strongly Agree"
+              "No Way No How",
+              "Interested but Concerned",
+              "Enthused & Confident",
+              "Strong & Fearless"
             ],
             "range": [
-              "#b91c1c",
-              "#f87171",
-              "#cbd5e1",
-              "#34d399",
-              "#047857"
+              "#94a3b8",
+              "#0d9488",
+              "#2dd4bf",
+              "#0f766e"
             ]
           },
           "legend": {
             "orient": "top",
             "direction": "horizontal",
-            "columns": 5
+            "title": null
           }
         },
         "tooltip": [
           {
-            "field": "facility",
+            "field": "cohort",
             "type": "nominal",
-            "title": "Road type"
+            "title": "Demographic Cohort"
           },
           {
-            "field": "sentiment",
+            "field": "typology",
             "type": "nominal",
-            "title": "Response"
+            "title": "Typology Category"
           },
           {
             "field": "pct",
             "type": "quantitative",
-            "title": "Respondents (%)",
-            "format": ".1f"
-          },
-          {
-            "field": "positive_total",
-            "type": "quantitative",
-            "title": "Total feel safe (%)",
+            "title": "Population Share (%)",
             "format": ".1f"
           }
         ]
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "zero": 0
-          }
-        ]
-      },
-      "mark": {
-        "type": "rule",
-        "color": "#0f172a",
-        "strokeWidth": 1.2
-      },
-      "encoding": {
-        "x": {
-          "field": "zero",
-          "type": "quantitative"
-        }
       }
     },
     {
@@ -207,28 +184,30 @@
       "mark": {
         "type": "text",
         "align": "left",
-        "dx": 5,
+        "dx": 8,
         "fontSize": 10.5,
-        "fontWeight": 700,
-        "fill": "#b91c1c"
+        "fontWeight": 600,
+        "fill": "#0f766e"
       },
       "encoding": {
         "y": {
-          "field": "facility",
+          "field": "cohort",
           "type": "nominal",
-          "sort": {
-            "field": "positive_total",
-            "op": "max",
-            "order": "descending"
-          }
+          "sort": [
+            "Female Residents",
+            "Outer Melbourne",
+            "Middle Melbourne",
+            "Overall (Greater Melbourne)",
+            "Inner Melbourne",
+            "Male Residents"
+          ]
         },
         "x": {
           "field": "x_end",
           "type": "quantitative"
         },
         "text": {
-          "field": "callout",
-          "type": "nominal"
+          "field": "callout"
         }
       }
     }
