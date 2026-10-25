@@ -47,7 +47,7 @@ Sources for all 11 figures are detailed below, linked in each caption in the vis
 | `data/merri_bek_transport_budget.csv` | Five-year capital allocations for six transport programs (2026–27 to 2030–31) | Merri-bek City Council Adopted Budget 2026–2030 (Appendix B, pp. 104–105) |
 | `data/melbourne_municipal_boundary.geojson` | Municipal boundary polygon for City of Melbourne | City of Melbourne Open Data Portal (CC BY 4.0) |
 | `data/bike_counters.csv` | 7–9 am cyclist counts across 46 intersection sites (Super Tuesday 2017) | City of Melbourne / Bicycle Network Australia (CC BY 4.0) |
-| `data/hourly_volume_patterns.csv` | Average hourly cyclist volume by day of week (24 hours × 7 days) | City of Melbourne Open Data — Automated Bicycle Counter Network |
+| `data/hourly_volume_patterns.csv` | Average hourly cyclist volume by day of week (24 hours × 7 days) | Transport Victoria / DataVic — Bicycle Volume and Speed Network |
 | `data/commute_trends_area.csv` | Inbound commuter mode shares into central Melbourne (2001–2021) | ABS Census of Population and Housing — Method of Travel to Work (2001–2021) |
 | `data/safety_perception_likert.csv` | Five-point Likert agreement on perceived safety across six road facility types | Bicycle Network — Rider Safety & Infrastructure Perception Survey |
 | `data/trip_purpose_radial.csv` | Share of bicycle trips, annual trips and average distance by trip purpose | Transport Victoria — Victorian Integrated Survey of Travel and Activity (VISTA) |
@@ -197,8 +197,9 @@ Sources for all 11 figures are detailed below, linked in each caption in the vis
 
 #### Figure 7: Hourly cycling patterns heatmap (`data/hourly_volume_patterns.csv`)
 
-- **Primary Source Portal:** [City of Melbourne Open Data Portal](https://data.melbourne.vic.gov.au/)
-- **Data Collection:** Automated Bicycle Counter Network.
+- **Primary Source Portal:** [Transport Victoria Open Data Portal — Bicycle Volume and Speed](https://opendata.transport.vic.gov.au/dataset/bicycle-volume-and-speed)
+- **State Repository Mirror:** [DataVic — Bicycle Volume and Speed](https://discover.data.vic.gov.au/dataset/bicycle-volume-and-speed)
+- **Municipal Sensor Network:** [City of Melbourne Open Data — Annual Bike Counts & Sensors](https://data.melbourne.vic.gov.au/explore/dataset/annual-bike-counts-super-tuesday/)
 - **Data File:** [Chart data](data/hourly_volume_patterns.csv)
 
 ##### Methodology & Context
