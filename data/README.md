@@ -97,9 +97,39 @@ Source: [Merri-bek City Council, Adopted Budget 2026–2030](https://www.merri-b
 
 ### Figure 3: Route map (`cycling_routes.geojson`)
 
-[Source reference](https://www.vic.gov.au/bicycle-network-planning) · [Chart data](cycling_routes.geojson)
+- **Primary Planning Framework:** [Victorian Government Strategic Cycling Corridors & Network Planning](https://www.vic.gov.au/bicycle-network-planning)
+- **Spatial Infrastructure Dataset:** [Transport Victoria — Bicycle Infrastructure Network (BIN)](https://opendata.transport.vic.gov.au/dataset/bicycle-infrastructure-network)
+- **State Repository:** [DataVic — Bicycle Infrastructure Network](https://discover.data.vic.gov.au/dataset/bicycle-infrastructure-network)
+- **Ridership Volumes:** [City of Melbourne — Annual Bike Counts (Super Tuesday)](https://data.melbourne.vic.gov.au/explore/dataset/annual-bike-counts-super-tuesday/) & [Bicycle Counter Network](https://data.melbourne.vic.gov.au/)
+- **Data File:** [Chart data](cycling_routes.geojson)
 
-Victorian Department of Transport and Planning (DTP) Strategic Cycling Corridors spatial network classified by physical protection tier and average daily ridership.
+#### How the Dataset Was Created
+1. **Corridor Selection (12 Major Melbourne Arteries):**
+   Selected 12 key commuter corridors radiating through Greater Melbourne to capture the diversity of infrastructure types:
+   - **Off-Road Shared Trails (6):** Capital City Trail, Main Yarra Trail, Upfield Bike Path, Bay Trail (St Kilda to Brighton), Gardiners Creek Trail, Maribyrnong River Trail.
+   - **Protected On-Road Corridors (4):** St Kilda Road Cycleway, Canning Street Corridor, Albert Street Cycleway, Footscray Road Veloway.
+   - **Painted On-Road Lanes (2):** Sydney Road Bike Lanes, Chapel Street Mixed Corridor.
+
+2. **Spatial Geometry Compilation:**
+   - Centerline coordinates were traced following the official alignments defined in the Victorian Government Strategic Cycling Corridors (SCC) spatial network and OpenStreetMap / Victorian road centerline databases.
+   - Coordinate format: GeoJSON `LineString` using WGS84 (`[longitude, latitude]`) geographic coordinates.
+
+3. **Protection Level Classification (`quality_tier`):**
+   Corridors were classified into three standardized tiers according to Victorian DTP Active Transport Infrastructure Design Guidelines:
+   - **`Separated Off-Road`**: Fully grade-separated paths in parklands, river corridors, or rail reserves, isolated from motorized vehicle traffic.
+   - **`Protected On-Road`**: Physically separated lanes positioned within road reserves, segregated from motor traffic by concrete kerbs, parked cars, or continuous physical barriers (e.g., St Kilda Rd protected bike lanes).
+   - **`Painted On-Road Lane`**: On-street bicycle lanes defined solely by white paint markings on road asphalt, exposing cyclists to motor traffic and car-door hazards (e.g., Sydney Rd).
+
+4. **Ridership Volume Compilation (`daily_volume`):**
+   - Benchmark average daily cyclist volumes were compiled from City of Melbourne permanent automated counter stations and the Bicycle Network Australia Annual Bike Count database.
+   - Values range from **1,200** daily riders on constrained corridors (Chapel St) to **6,200** daily riders on flagship arteries (St Kilda Rd).
+
+5. **Visual Encoding Architecture in Vega-Lite:**
+   - **Base Map:** Overlaid on [`melbourne_lgas.geojson`](melbourne_lgas.geojson) rendered in neutral grey (`#f1f5f9`).
+   - **Colour Hue:** Dark Green (`#065f46`) for Separated Off-Road, Emerald (`#10b981`) for Protected On-Road, Amber (`#d97706`) for Painted On-Road.
+   - **Texture (Accessibility):** Solid lines (`[1, 0]`) for protected paths; dashed lines (`[6, 4]`) for painted lanes, providing redundant encoding for colour-blind readers.
+   - **Line Width:** Scaled linearly from 1.5px to 6px based on `daily_volume`.
+   - **Interactivity:** Vega-Lite point selection bound to the legend (`tierSelect`) with conditional opacity (0.12 when unselected).
 
 <a id="figure-4"></a>
 
