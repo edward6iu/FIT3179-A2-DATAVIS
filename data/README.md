@@ -77,9 +77,21 @@ Source: [Merri-bek City Council, Adopted Budget 2026–2030](https://www.merri-b
 
 ### Figure 2: Short-trip waffle (`short_trips_mode.csv`)
 
-[Source reference](https://opendata.transport.vic.gov.au/dataset/victorian-integrated-survey-of-travel-and-activity-vista?v=2) · [Chart data](short_trips_mode.csv)
+- **Primary Source Portal:** [Transport Victoria — VISTA Open Data Collection](https://opendata.transport.vic.gov.au/dataset/victorian-integrated-survey-of-travel-and-activity-vista)
+- **State Data Repository:** [DataVic — Victorian Integrated Survey of Travel and Activity](https://discover.data.vic.gov.au/dataset/vista-victoria-integrated-survey-of-travel-and-activity)
+- **Data File:** [Chart data](short_trips_mode.csv)
 
-Transport Victoria — Victorian Integrated Survey of Travel and Activity (VISTA), modal split for short trips under 5 km (Car Driver 55%, Car Passenger 17%, Walking 19%, Public Transport 6%, Bicycle 3%).
+#### Survey Background & Methodology
+- **Survey Custodian:** Victorian Department of Transport and Planning (DTP) / Transport Victoria.
+- **Survey Type:** Ongoing, comprehensive household travel survey across Greater Melbourne. Unlike the Census (which only captures journeys to work on a single Tuesday), VISTA samples household travel diaries across all 7 days of the week and all travel purposes (work, education, shopping, personal business, recreation).
+- **Subset Scope:** Trips within Greater Melbourne with a trip network distance under 5 km (`VISTADIST < 5.0 km` or `cumdist < 5.0 km`).
+- **Modal Split Distribution:**
+  - **Car Driver:** 55%
+  - **Car Passenger:** 17% *(Combined private motor vehicle: **72%**)*
+  - **Walking:** 19%
+  - **Public Transport:** 6% *(train, tram, bus)*
+  - **Bicycle:** 3%
+- **Analytical Significance:** Trips under 5 km take approximately 15–20 minutes by bicycle on flat terrain. Despite this, nearly three-quarters (72%) of these short trips are currently undertaken by private car, highlighting the primary active transport opportunity for Melbourne's cycling network.
 
 <a id="figure-3"></a>
 
