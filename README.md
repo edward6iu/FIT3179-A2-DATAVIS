@@ -1,6 +1,6 @@
-Repository: [https://github.com/edward6iu/FIT3179-A2-DATAVIS-master](https://github.com/edward6iu/FIT3179-A2-DATAVIS-master)
+Repository: [https://github.com/edward6iu/FIT3179-A2-DATAVIS](https://github.com/edward6iu/FIT3179-A2-DATAVIS)
 
-Website: [https://edward6iu.github.io/FIT3179-A2-DATAVIS-master/](https://edward6iu.github.io/FIT3179-A2-DATAVIS-master/)
+Website: [https://edward6iu.github.io/FIT3179-A2-DATAVIS/](https://edward6iu.github.io/FIT3179-A2-DATAVIS/)
 
 # Pedalling Ahead: Melbourne’s Cycling Commute Landscape
 
