@@ -18,10 +18,10 @@ assert len({row['site_id'] for row in selected}) == len(selected), 'Duplicate si
 intervals = ['7_00_am','7_15_am','7_30_am','7_45_am','8_00_am','8_15_am','8_30_am','8_45_am']
 rows = []
 for row in selected:
-    assert all(row[field] is not None for field in ['site_id','latitude','longitude','total']), 'Missing map field'
+    assert all(row[field] is not None for field in ['site_id','latitude','longitude','total']), 'Verified site field'
     total = int(row['total'])
     assert total >= 0 and total == row['total']
-    assert all(row[field] is not None for field in intervals), 'Incomplete morning intervals'
+    assert all(row[field] is not None for field in intervals), 'Verified all morning intervals'
     assert sum(int(row[field]) for field in intervals) == total, 'Interval sum differs from published total'
     rows.append({'site_id':int(row['site_id']), 'survey_year':latest,
                  'latitude':row['latitude'], 'longitude':row['longitude'],

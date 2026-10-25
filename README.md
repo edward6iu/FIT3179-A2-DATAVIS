@@ -241,7 +241,7 @@ Sources for all 11 figures are detailed below, linked in each caption in the vis
   - In 2001, **Private Car** was the dominant mode into central Melbourne (245k trips, 53.0%), with Public Transport carrying 180k (39.0%) and Cycling carrying 9k (1.9%).
   - By 2016, **Public Transport** surged to become the majority mode (310k trips, 51.1%), while Private Car declined to 215k trips (35.4%).
   - Cycling trips more than tripled from 9k (1.9%) in 2001 to 31k (5.1%) in 2016.
-- **2021 (COVID-19 Lockdown 6 Anomaly):**
+- **2021 Census (Pandemic Trends & Cycling Resilience):**
   - Total physical trips into the central city dropped from 607k to 437k due to widespread stay-at-home orders and remote work (38.6% of Melbourne workers worked from home on Census Day).
   - Despite overall volume drops, cycling retained 29k trips (6.6% of physical commuters), reflecting the resilience of active transport during the pandemic.
 
