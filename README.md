@@ -252,7 +252,9 @@ Sources for all 11 figures are detailed below, linked in each caption in the vis
 #### Figure 9: Perceived cycling safety Likert bars (`data/safety_perception_likert.csv`)
 
 - **Primary Organisation:** [Bicycle Network Australia](https://bicyclenetwork.com.au/)
-- **Associated Academic Research:** [Monash University Accident Research Centre (MUARC) — Sustainable Mobility & Safety](https://www.monash.edu/)
+- **Research Institute:** [Monash University Accident Research Centre (MUARC)](https://www.monash.edu/muarc) *(straight from our very own uni at Clayton — proving scientifically what every Monash student already knew: paint is not protection!)*
+- **Monash Academic Study (Passing Distances & Infrastructure):** [Monash University — "More than a stripe of paint needed to keep cyclists safe"](https://www.monash.edu/news/articles/more-than-a-stripe-of-paint-needed-to-keep-cyclists-safe)
+- **Monash Public Health Research:** [Monash Medicine — "3 in 4 people want to ride a bike, but are put off by lack of safe lanes"](https://www.monash.edu/medicine/news/latest/2022-articles/3-in-4-people-want-to-ride-a-bike-but-are-put-off-by-lack-of-safe-lanes)
 - **Data File:** [Chart data](data/safety_perception_likert.csv)
 
 ##### Survey Background & Methodology
@@ -310,3 +312,10 @@ Sources for all 11 figures are detailed below, linked in each caption in the vis
   5. **Main Yarra Trail (Abbotsford):** 211 Female (27.0%), 569 Male (73.0%) — *Shared recreational corridor.*
   6. **Footscray Rd (West Melbourne):** 139 Female (17.0%), 681 Male (83.0%) — *Lowest female participation (hostile industrial freight corridor).*
 - **Analytical Significance:** In international and Australian transport planning research, **female rider share is considered an "indicator species" of cycling infrastructure safety and quality**. Female participation is twice as high on calm, protected routes (38% on Canning St) compared to traffic-heavy, unseparated industrial roads (17% on Footscray Rd).
+
+
+---
+
+## Generative AI declaration
+
+Gemini 3.8 Flash was used to assist with building the website's styles CSS code alongside formatting the references and compiling them into neat formats, and was also used to scrape data from [Bicycle Network](https://bicyclenetwork.com.au/) which had the dataset locked behind a subscription.
