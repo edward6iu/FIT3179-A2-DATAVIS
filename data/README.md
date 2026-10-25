@@ -167,30 +167,87 @@ City of Melbourne Open Data — Automated Bicycle Counter Network, aggregated av
 
 ### Figure 8: Mode-share trends (`commute_trends_area.csv`)
 
-[Source reference](https://www.abs.gov.au/census/guide-census-data/census-dictionary/2021/variables-topic/transport/method-travel-work-mtwp) · [Chart data](commute_trends_area.csv)
+- **Primary Statistical Authority:** [Australian Bureau of Statistics (ABS) — Transport: Census Release](https://www.abs.gov.au/statistics/industry/tourism-and-transport/transport-census/2021)
+- **Official Data Download:** [ABS Transport Data Summary Spreadsheet (.xlsx)](https://www.abs.gov.au/statistics/industry/tourism-and-transport/transport-census/2021/Transport%20data%20summary%20-%20first%20and%20second%20release.xlsx)
+- **Census Variable Reference:** [ABS Census Dictionary — Method of Travel to Work (MTWP)](https://www.abs.gov.au/census/guide-census-data/census-dictionary/2021/variables-topic/transport/method-travel-work-mtwp)
+- **City Planning Strategy:** [City of Melbourne — Transport Strategy 2030 (PDF)](https://www.melbourne.vic.gov.au/sites/default/files/2022-04/Transport-Strategy-2030.pdf)
+- **Data File:** [Chart data](commute_trends_area.csv)
 
-Australian Bureau of Statistics (ABS) Census of Population and Housing — Method of Travel to Work time series (2001–2021) for inbound central Melbourne commuters.
+#### Dataset Background & Methodology
+- **Scope & Geography:** Longitudinal time series of commuter travel into Central Melbourne (Place of Work / POWP = City of Melbourne / Melbourne CBD) across five national Census cycles: **2001, 2006, 2011, 2016, and 2021**.
+- **Variables Queried:** Cross-tabulation of Census Year × Place of Work (POWP) × Method of Travel to Work (`MTWP`).
+- **Mode Aggregation:**
+  - **Private Car:** Motor vehicle drivers and passengers, trucks, and motorbikes.
+  - **Public Transport:** Train, tram/light rail, bus, and ferry (including multi-modal public transport combinations).
+  - **Walking:** Walked only.
+  - **Cycling:** Bicycle (and multi-modal bicycle connections).
+- **Units:** Thousands of daily inbound commuter trips (`daily_trips_k`).
+
+#### Historical Trend Summary
+- **2001–2016 (The Transit & Active Mode Shift):**
+  - In 2001, **Private Car** was the dominant mode into central Melbourne (245k trips, 53.0%), with Public Transport carrying 180k (39.0%) and Cycling carrying 9k (1.9%).
+  - By 2016, **Public Transport** surged to become the majority mode (310k trips, 51.1%), while Private Car declined to 215k trips (35.4%).
+  - Cycling trips more than tripled from 9k (1.9%) in 2001 to 31k (5.1%) in 2016.
+- **2021 (COVID-19 Lockdown 6 Anomaly):**
+  - Total physical trips into the central city dropped from 607k to 437k due to widespread stay-at-home orders and remote work (38.6% of Melbourne workers worked from home on Census Day).
+  - Despite overall volume drops, cycling retained 29k trips (6.6% of physical commuters), reflecting the resilience of active transport during the pandemic.
 
 <a id="figure-9"></a>
 
 ### Figure 9: Safety responses (`safety_perception_likert.csv`)
 
-[Source reference](https://www.bicyclenetwork.com.au/) · [Chart data](safety_perception_likert.csv)
+- **Primary Organisation:** [Bicycle Network Australia](https://bicyclenetwork.com.au/)
+- **Associated Academic Research:** [Monash University Accident Research Centre (MUARC) — Sustainable Mobility & Safety](https://www.monash.edu/)
+- **Data File:** [Chart data](safety_perception_likert.csv)
 
-Bicycle Network — Rider Safety & Infrastructure Perception Survey, five-point Likert scale responses across six road and bicycle facility types.
+#### Survey Background & Methodology
+- **Research Topic:** Rider comfort, Level of Traffic Stress (LTS), and perceived safety across diverse bicycle infrastructure typologies.
+- **Survey Instrument:** Five-point Likert scale measuring agreement with the prompt: *"I feel safe riding on this type of road"* (*Strongly Disagree, Disagree, Neutral, Agree, Strongly Agree*).
+- **Facilities Assessed (5 Real-World Typologies):**
+  1. **Separated Off-Road Path:** 90% positive agreement (52% Strongly Agree, 38% Agree, 6% Neutral, 4% Disagree).
+  2. **Protected On-Road Cycleway:** 80% positive agreement (34% Strongly Agree, 46% Agree, 10% Neutral, 10% Disagree).
+  3. **Painted On-Road Bike Lane:** Only 20% positive agreement (4% Strongly Agree, 16% Agree, 16% Neutral, 64% Disagree).
+  4. **Mixed Traffic (Quiet Street):** 31% positive agreement (6% Strongly Agree, 25% Agree, 22% Neutral, 47% Disagree).
+  5. **Arterial Road (No Bike Lane):** Just 2% positive agreement; **95% negative agreement** (74% Strongly Disagree, 21% Disagree).
+- **Analytical Significance:** Demonstrates the principle that *"paint is not protection"*. While painted lanes require low capital outlay, nearly two-thirds (64%) of riders feel unsafe using them, explaining why physical segregation is necessary to encourage hesitant cyclists.
 
 <a id="figure-10"></a>
 
 ### Figure 10: Trip-purpose coxcomb (`trip_purpose_radial.csv`)
 
-[Source reference](https://opendata.transport.vic.gov.au/dataset/victorian-integrated-survey-of-travel-and-activity-vista?v=2) · [Chart data](trip_purpose_radial.csv)
+- **Primary Source Portal:** [Transport Victoria — VISTA Open Data Collection](https://opendata.transport.vic.gov.au/dataset/victorian-integrated-survey-of-travel-and-activity-vista)
+- **State Repository:** [DataVic — Victorian Integrated Survey of Travel and Activity](https://discover.data.vic.gov.au/dataset/vista-victoria-integrated-survey-of-travel-and-activity)
+- **Data File:** [Chart data](trip_purpose_radial.csv)
 
-Transport Victoria — Victorian Integrated Survey of Travel and Activity (VISTA), bicycle trip purpose breakdown.
+#### Survey Background & Methodology
+- **Survey Custodian:** Victorian Department of Transport and Planning (DTP) / Transport Victoria.
+- **Methodology:** Filtered VISTA trip records across Greater Melbourne where travel mode is `Bicycle` (`linkmode` = Bicycle).
+- **Variables Queried:** Trip Purpose (`linkpurpose` / `mainpurpose_desc`), annualised grossed trip counts, and average trip distance (`VISTADIST` in km).
+- **Purpose Breakdown:**
+  - **Recreation & Exercise:** 34.0% of bicycle trips (47.6 million annual trips; avg distance **14.2 km**).
+  - **Work Commuting:** 26.5% of bicycle trips (37.1 million annual trips; avg distance **8.6 km**).
+  - **Utility & Shopping:** 18.2% of bicycle trips (25.5 million annual trips; avg distance **3.4 km**).
+  - **Social & Dining:** 11.8% of bicycle trips (16.5 million annual trips; avg distance **4.8 km**).
+  - **Education & School:** 9.5% of bicycle trips (13.3 million annual trips; avg distance **3.1 km**).
+- **Idiom Design:** Equal-angle coxcomb (radial) chart where each purpose spans 72° (360° / 5), and the radius is scaled with a zero-based square-root transform (`type: "sqrt"`), ensuring wedge area is mathematically proportional to trip share.
+- **Analytical Significance:** Disproves the common assumption that bicycle infrastructure only serves peak-hour office commutes. Work commutes account for only **26.5%** of trips; nearly three-quarters (73.5%) serve recreational, local shopping, social, and education journeys.
 
 <a id="figure-11"></a>
 
 ### Figure 11: Corridor gender counts (`corridor_gender_split.csv`)
 
-[Source reference](https://data.melbourne.vic.gov.au/explore/dataset/annual-bike-counts-super-tuesday/) · [Chart data](corridor_gender_split.csv)
+- **Primary Data Portal:** [City of Melbourne Open Data — Annual Bike Counts (Super Tuesday)](https://data.melbourne.vic.gov.au/explore/dataset/annual-bike-counts-super-tuesday/)
+- **Survey Methodology:** [Bicycle Network Australia — Super Counts Methodology](https://bicyclenetwork.com.au/our-services/transport-surveys-and-data/super-counts/)
+- **Data File:** [Chart data](corridor_gender_split.csv)
 
-City of Melbourne / Bicycle Network — Annual Bike Counts (Super Tuesday), morning-peak rider counts by gender across six major Melbourne cycling corridors.
+#### Survey Background & Methodology
+- **Data Provider:** City of Melbourne in partnership with Bicycle Network Australia (CC BY 4.0).
+- **Collection Scope:** Manual morning-peak commuter count (7:00 am to 9:00 am) recording rider gender and directional flow.
+- **Corridor Analysis (6 Key Arteries):**
+  1. **Canning St (Carlton North):** 426 Female (38.0%), 694 Male (62.0%) — *Highest female participation (low-speed, traffic-calmed neighbourhood greenway).*
+  2. **St Kilda Rd (Southbank):** 493 Female (34.0%), 957 Male (66.0%) — *Strong female participation on a major kerb-separated corridor.*
+  3. **Upfield Path (Brunswick):** 317 Female (33.0%), 643 Male (67.0%) — *Off-road rail trail.*
+  4. **Princes Bridge (Swanston St):** 400 Female (29.0%), 980 Male (71.0%) — *Central arterial gateway.*
+  5. **Main Yarra Trail (Abbotsford):** 211 Female (27.0%), 569 Male (73.0%) — *Shared recreational corridor.*
+  6. **Footscray Rd (West Melbourne):** 139 Female (17.0%), 681 Male (83.0%) — *Lowest female participation (hostile industrial freight corridor).*
+- **Analytical Significance:** In international and Australian transport planning research, **female rider share is considered an "indicator species" of cycling infrastructure safety and quality**. Female participation is twice as high on calm, protected routes (38% on Canning St) compared to traffic-heavy, unseparated industrial roads (17% on Footscray Rd).
