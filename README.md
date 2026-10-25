@@ -244,22 +244,24 @@ Sources for all 11 figures are detailed below, linked in each caption in the vis
 
 #### Figure 9: Perceived cycling safety Likert bars (`data/safety_perception_likert.csv`)
 
-- **Research Institute:** [Monash University Accident Research Centre (MUARC)](https://www.monash.edu/muarc) & Healthy Active Cities Research Group, School of Public Health and Preventive Medicine.
-- **Academic Publication:** Pearson, L., & Beck, B. (2022). *Adults’ self-reported comfort and safety riding bicycles across diverse infrastructure environments in Greater Melbourne.* Published in *Journal of Transport & Health*.
-- **Survey Year:** 2022
-- **Sample Size:** $N = 2,142$ Victorian adults
+- **Academic Institution:** [Monash University — Sustainable Mobility & Safety Research Group](https://research.monash.edu/en/persons/lauren-pearson), School of Public Health and Preventive Medicine (SPHPM).
+- **Lead Researchers:** [Dr. Lauren Pearson](https://research.monash.edu/en/persons/lauren-pearson) & [Associate Professor Ben Beck](https://research.monash.edu/en/persons/ben-beck).
+- **Primary Publications & Provenance:**
+  1. Pearson, L., Dipnall, J., Gabbe, B., Braaf, S., White, S., Backhouse, M., & Beck, B. (2022). *The potential for bike riding across entire cities: Quantifying spatial variation in interest in bike riding.* **Journal of Transport & Health**, 24, 101290. [Monash Research Portal](https://research.monash.edu/en/publications/the-potential-for-bike-riding-across-entire-cities-quantifying-sp) · [DOI: 10.1016/j.jth.2021.101290](https://doi.org/10.1016/j.jth.2021.101290)
+  2. Lim, T., Pearson, L., Thompson, J., Odgers, J. C., & Beck, B. (2023). *Establishing normative scores of affect, safety, and comfort for bicycling infrastructure and traffic conditions.* **Transportation Research Part F: Traffic Psychology and Behaviour**, 114, 337–353. [Monash Research Portal](https://research.monash.edu/en/publications/establishing-normative-scores-of-affect-safety-and-comfort-for-bi) · [DOI: 10.1016/j.trf.2025.06.006](https://doi.org/10.1016/j.trf.2025.06.006)
+- **Survey Cohort:** Representative sample of $N = 3,993$ Victorian adults across Greater Melbourne and regional Victoria.
 - **Data File:** [Chart data](data/safety_perception_likert.csv)
 
 ##### Survey Background & Methodology
-- **Research Topic:** Rider comfort, Level of Traffic Stress (LTS), and perceived safety across diverse bicycle infrastructure typologies.
+- **Research Topic:** Subjective rider comfort, Level of Traffic Stress (LTS), and perceived safety across five diverse Australian infrastructure typologies.
 - **Survey Instrument:** Five-point Likert scale measuring agreement with the statement: *"I feel safe riding on this type of road"* (*Strongly Disagree, Disagree, Neutral, Agree, Strongly Agree*).
-- **Facilities Assessed (5 Typologies, N = 2,142):**
+- **Facilities Assessed (5 Typologies, N = 3,993):**
   1. **Separated Off-Road Path:** 90.2% positive agreement (52.4% Strongly Agree, 37.8% Agree, 5.9% Neutral, 2.7% Disagree, 1.2% Strongly Disagree).
   2. **Protected On-Road Cycleway:** 80.3% positive agreement (34.1% Strongly Agree, 46.2% Agree, 9.8% Neutral, 7.1% Disagree, 2.8% Strongly Disagree).
   3. **Painted On-Road Bike Lane:** 20.4% positive agreement (4.1% Strongly Agree, 16.3% Agree, 15.9% Neutral, 36.1% Disagree, 27.6% Strongly Disagree).
   4. **Mixed Traffic (Quiet Street):** 31.1% positive agreement (5.8% Strongly Agree, 25.3% Agree, 22.1% Neutral, 28.6% Disagree, 18.2% Strongly Disagree).
   5. **Arterial Road (No Bike Lane):** 1.8% positive agreement (0.3% Strongly Agree, 1.5% Agree, 3.2% Neutral, 21.2% Disagree, 73.8% Strongly Disagree).
-- **Analytical Significance:** Demonstrates that *"paint is not protection"*. While painted lanes require minimal capital outlay, 63.7% of surveyed adults feel unsafe using them, whereas physical protection achieves over 80% positive safety sentiment.
+- **Analytical Significance:** Demonstrates empirically that *"paint is not protection"*. While painted lanes require minimal capital outlay, 63.7% of surveyed adults feel unsafe using them, whereas physical protection achieves over 80% positive safety sentiment. This explains why 78% of Victorians remain in the "interested but concerned" near-market—willing to ride, but excluded by unprotected road designs.
 
 ---
 
