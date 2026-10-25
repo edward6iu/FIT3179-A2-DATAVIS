@@ -3,17 +3,28 @@
   "description": "Advanced Idiom 6 - Heatmap (matrix). Average riders per hour at City of Melbourne counters, by hour of day and day of week. Sequential green scale; weekday peak cells are outlined to show the twin commuter spikes.",
   "title": {
     "text": "Weekdays have two commuter rush hours; weekends peak at midday",
-    "subtitle": "Average riders per hour across City of Melbourne counters, by day and hour."
+    "subtitle": "Average riders per hour across City of Melbourne counters over a 24-hour day (00:00 to 23:00)."
   },
   "width": "container",
   "height": 280,
   "padding": {"top": 5, "left": 5, "right": 5, "bottom": 5},
-  "data": {"url": "data/hourly_volume_patterns.csv"},
+  "data": {
+    "url": "data/hourly_volume_patterns.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "hour": "integer",
+        "day_order": "integer",
+        "cyclists": "integer"
+      }
+    }
+  },
   "encoding": {
     "x": {
       "field": "hour",
       "type": "ordinal",
-      "title": "Hour of day",
+      "sort": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+      "title": "Hour of day (24-hour time)",
       "axis": {
         "labelAngle": 0,
         "labelExpr": "datum.value % 3 == 0 ? (datum.value < 10 ? '0' : '') + datum.value + ':00' : ''",

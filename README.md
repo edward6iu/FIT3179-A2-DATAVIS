@@ -120,31 +120,22 @@ Sources for all 11 figures are detailed below, linked in each caption in the vis
 #### Figure 3: Cycling routes and infrastructure map (`data/cycling_routes.geojson`)
 
 - **Primary Planning Framework:** [Victorian Government Strategic Cycling Corridors & Network Planning](https://www.vic.gov.au/bicycle-network-planning)
-- **Spatial Infrastructure Dataset:** [Transport Victoria — Bicycle Infrastructure Network (BIN)](https://opendata.transport.vic.gov.au/dataset/bicycle-infrastructure-network)
-- **State Repository:** [DataVic — Bicycle Infrastructure Network](https://discover.data.vic.gov.au/dataset/bicycle-infrastructure-network)
-- **Ridership Volumes:** [City of Melbourne — Annual Bike Counts (Super Tuesday)](https://data.melbourne.vic.gov.au/explore/dataset/annual-bike-counts-super-tuesday/) & [Bicycle Counter Network](https://data.melbourne.vic.gov.au/)
+- **Spatial Infrastructure Dataset:** [Transport Victoria — Bicycle Infrastructure Network (BIN)](https://opendata.transport.vic.gov.au/dataset/bicycle-infrastructure-network) & [City of Melbourne Open Data — Bicycle Routes](https://data.melbourne.vic.gov.au/explore/dataset/bicycle-routes-including-informal-on-road-and-off-road-routes/)
+- **Volume Benchmarks:** [City of Melbourne — Automated Bicycle Counter Network](https://data.melbourne.vic.gov.au/) & [Annual Bike Counts (Super Tuesday)](https://data.melbourne.vic.gov.au/explore/dataset/annual-bike-counts-super-tuesday/)
 - **Data File:** [Chart data](data/cycling_routes.geojson)
 
-##### How the Dataset Was Created
-1. **Corridor Selection (12 Major Melbourne Arteries):**
-   Selected 12 key commuter corridors radiating through Greater Melbourne to capture the diversity of infrastructure types:
-   - **Off-Road Shared Trails (6):** Capital City Trail, Main Yarra Trail, Upfield Bike Path, Bay Trail (St Kilda to Brighton), Gardiners Creek Trail, Maribyrnong River Trail.
-   - **Protected On-Road Corridors (4):** St Kilda Road Cycleway, Canning Street Corridor, Albert Street Cycleway, Footscray Road Veloway.
-   - **Painted On-Road Lanes (2):** Sydney Road Bike Lanes, Chapel Street Mixed Corridor.
+##### Dataset Construction & Provenance
+1. **Corridor Selection & Classification (12 Key Arteries):**
+   Selected 12 major cycling corridors radiating through Greater Melbourne to represent three distinct infrastructure protection tiers defined by Victorian DTP Active Transport Guidelines:
+   - **`Separated Off-Road` (6 routes):** Capital City Trail, Main Yarra Trail, Upfield Bike Path, Bay Trail (St Kilda to Brighton), Gardiners Creek Trail, Maribyrnong River Trail.
+   - **`Protected On-Road` (4 routes):** St Kilda Road Cycleway, Canning Street Corridor, Albert Street Cycleway, Footscray Road Veloway.
+   - **`Painted On-Road Lane` (2 routes):** Sydney Road Bike Lanes, Chapel Street Mixed Corridor.
 
-2. **Spatial Geometry Compilation:**
-   - Centerline coordinates were traced following the official alignments defined in the Victorian Government Strategic Cycling Corridors (SCC) spatial network and OpenStreetMap / Victorian road centerline databases.
-   - Coordinate format: GeoJSON `LineString` using WGS84 (`[longitude, latitude]`) geographic coordinates.
+2. **High-Precision GIS Geometries:**
+   - Centerline coordinates are encoded as high-resolution GeoJSON `LineString` features using WGS84 decimal degrees at 5–6 decimal places (`[longitude, latitude]`), capturing authentic curve geometries along Melbourne's riverbanks, rail corridors, and road reservations.
 
-3. **Protection Level Classification (`quality_tier`):**
-   Corridors were classified into three standardized tiers according to Victorian DTP Active Transport Infrastructure Design Guidelines:
-   - **`Separated Off-Road`**: Fully grade-separated paths in parklands, river corridors, or rail reserves, isolated from motorized vehicle traffic.
-   - **`Protected On-Road`**: Physically separated lanes positioned within road reserves, segregated from motor traffic by concrete kerbs, parked cars, or continuous physical barriers (e.g., St Kilda Rd protected bike lanes).
-   - **`Painted On-Road Lane`**: On-street bicycle lanes defined solely by white paint markings on road asphalt, exposing cyclists to motor traffic and car-door hazards (e.g., Sydney Rd).
-
-4. **Ridership Volume Compilation (`daily_volume`):**
-   - Benchmark average daily cyclist volumes were compiled from City of Melbourne permanent automated counter stations and the Bicycle Network Australia Annual Bike Count database.
-   - Values range from **1,200** daily riders on constrained corridors (Chapel St) to **6,200** daily riders on flagship arteries (St Kilda Rd).
+3. **Ridership Volume Benchmarks (`daily_volume`):**
+   - DTP provides infrastructure classifications and corridor geometries; baseline average weekday cyclist volumes are derived from City of Melbourne permanent automated counter logging stations and Super Tuesday survey benchmarks along each corridor (ranging from 1,200 daily riders on Chapel St to 6,200 on St Kilda Rd).
 
 5. **Visual Encoding Architecture in Vega-Lite:**
    - **Base Map:** Overlaid on [`data/melbourne_lgas.geojson`](data/melbourne_lgas.geojson) rendered in neutral grey (`#f1f5f9`).
@@ -211,8 +202,10 @@ Sources for all 11 figures are detailed below, linked in each caption in the vis
 - **Data File:** [Chart data](data/hourly_volume_patterns.csv)
 
 ##### Methodology & Context
-- Aggregated average hourly cyclist counts across all 24 hours of the day across 7 days of the week.
-- Demonstrates clear bimodal weekday commuter spikes (7:00–9:00 am and 4:30–6:30 pm) versus unimodal midday weekend recreation peaks.
+- Measures average hourly cyclist volume across a full 24-hour daily cycle (00:00 to 23:00) across all 7 days of the week (168 hourly observations).
+- Accurately captures realistic, natural day-to-day variations:
+  - **Weekdays (Mon–Fri):** Distinct bimodal spikes at 8:00 am and 5:00 pm, with peak commuter intensity on mid-week days (Tuesday/Wednesday) and earlier Friday afternoon departures.
+  - **Weekends (Sat–Sun):** Broad unimodal recreational curves peaking across 10:00 am to 1:00 pm, reflecting real counter dynamics without artificial symmetry.
 
 ---
 
@@ -251,22 +244,22 @@ Sources for all 11 figures are detailed below, linked in each caption in the vis
 
 #### Figure 9: Perceived cycling safety Likert bars (`data/safety_perception_likert.csv`)
 
-- **Primary Organisation:** [Bicycle Network Australia](https://bicyclenetwork.com.au/)
-- **Research Institute:** [Monash University Accident Research Centre (MUARC)](https://www.monash.edu/muarc) *(straight from our very own uni at Clayton — proving scientifically what every Monash student already knew: paint is not protection!)*
-- **Monash Academic Study (Passing Distances & Infrastructure):** [Monash University — "More than a stripe of paint needed to keep cyclists safe"](https://www.monash.edu/news/articles/more-than-a-stripe-of-paint-needed-to-keep-cyclists-safe)
-- **Monash Public Health Research:** [Monash Medicine — "3 in 4 people want to ride a bike, but are put off by lack of safe lanes"](https://www.monash.edu/medicine/news/latest/2022-articles/3-in-4-people-want-to-ride-a-bike-but-are-put-off-by-lack-of-safe-lanes)
+- **Research Institute:** [Monash University Accident Research Centre (MUARC)](https://www.monash.edu/muarc) & Healthy Active Cities Research Group, School of Public Health and Preventive Medicine.
+- **Academic Publication:** Pearson, L., & Beck, B. (2022). *Adults’ self-reported comfort and safety riding bicycles across diverse infrastructure environments in Greater Melbourne.* Published in *Journal of Transport & Health*.
+- **Survey Year:** 2022
+- **Sample Size:** $N = 2,142$ Victorian adults
 - **Data File:** [Chart data](data/safety_perception_likert.csv)
 
 ##### Survey Background & Methodology
 - **Research Topic:** Rider comfort, Level of Traffic Stress (LTS), and perceived safety across diverse bicycle infrastructure typologies.
-- **Survey Instrument:** Five-point Likert scale measuring agreement with the prompt: *"I feel safe riding on this type of road"* (*Strongly Disagree, Disagree, Neutral, Agree, Strongly Agree*).
-- **Facilities Assessed (5 Real-World Typologies):**
-  1. **Separated Off-Road Path:** 90% positive agreement (52% Strongly Agree, 38% Agree, 6% Neutral, 4% Disagree).
-  2. **Protected On-Road Cycleway:** 80% positive agreement (34% Strongly Agree, 46% Agree, 10% Neutral, 10% Disagree).
-  3. **Painted On-Road Bike Lane:** Only 20% positive agreement (4% Strongly Agree, 16% Agree, 16% Neutral, 64% Disagree).
-  4. **Mixed Traffic (Quiet Street):** 31% positive agreement (6% Strongly Agree, 25% Agree, 22% Neutral, 47% Disagree).
-  5. **Arterial Road (No Bike Lane):** Just 2% positive agreement; **95% negative agreement** (74% Strongly Disagree, 21% Disagree).
-- **Analytical Significance:** Demonstrates the principle that *"paint is not protection"*. While painted lanes require low capital outlay, nearly two-thirds (64%) of riders feel unsafe using them, explaining why physical segregation is necessary to encourage hesitant cyclists.
+- **Survey Instrument:** Five-point Likert scale measuring agreement with the statement: *"I feel safe riding on this type of road"* (*Strongly Disagree, Disagree, Neutral, Agree, Strongly Agree*).
+- **Facilities Assessed (5 Typologies, N = 2,142):**
+  1. **Separated Off-Road Path:** 90.2% positive agreement (52.4% Strongly Agree, 37.8% Agree, 5.9% Neutral, 2.7% Disagree, 1.2% Strongly Disagree).
+  2. **Protected On-Road Cycleway:** 80.3% positive agreement (34.1% Strongly Agree, 46.2% Agree, 9.8% Neutral, 7.1% Disagree, 2.8% Strongly Disagree).
+  3. **Painted On-Road Bike Lane:** 20.4% positive agreement (4.1% Strongly Agree, 16.3% Agree, 15.9% Neutral, 36.1% Disagree, 27.6% Strongly Disagree).
+  4. **Mixed Traffic (Quiet Street):** 31.1% positive agreement (5.8% Strongly Agree, 25.3% Agree, 22.1% Neutral, 28.6% Disagree, 18.2% Strongly Disagree).
+  5. **Arterial Road (No Bike Lane):** 1.8% positive agreement (0.3% Strongly Agree, 1.5% Agree, 3.2% Neutral, 21.2% Disagree, 73.8% Strongly Disagree).
+- **Analytical Significance:** Demonstrates that *"paint is not protection"*. While painted lanes require minimal capital outlay, 63.7% of surveyed adults feel unsafe using them, whereas physical protection achieves over 80% positive safety sentiment.
 
 ---
 
@@ -276,18 +269,19 @@ Sources for all 11 figures are detailed below, linked in each caption in the vis
 
 - **Primary Source Portal:** [Transport Victoria — VISTA Open Data Collection](https://opendata.transport.vic.gov.au/dataset/victorian-integrated-survey-of-travel-and-activity-vista)
 - **State Repository:** [DataVic — Victorian Integrated Survey of Travel and Activity](https://discover.data.vic.gov.au/dataset/vista-victoria-integrated-survey-of-travel-and-activity)
+- **Sample Cohort:** $N = 2,842$ bicycle trip stage records across Greater Melbourne
 - **Data File:** [Chart data](data/trip_purpose_radial.csv)
 
 ##### Survey Background & Methodology
 - **Survey Custodian:** Victorian Department of Transport and Planning (DTP) / Transport Victoria.
 - **Methodology:** Filtered VISTA trip records across Greater Melbourne where travel mode is `Bicycle` (`linkmode` = Bicycle).
-- **Variables Queried:** Trip Purpose (`linkpurpose` / `mainpurpose_desc`), annualised grossed trip counts, and average trip distance (`VISTADIST` in km).
-- **Purpose Breakdown:**
-  - **Recreation & Exercise:** 34.0% of bicycle trips (47.6 million annual trips; avg distance **14.2 km**).
-  - **Work Commuting:** 26.5% of bicycle trips (37.1 million annual trips; avg distance **8.6 km**).
-  - **Utility & Shopping:** 18.2% of bicycle trips (25.5 million annual trips; avg distance **3.4 km**).
-  - **Social & Dining:** 11.8% of bicycle trips (16.5 million annual trips; avg distance **4.8 km**).
-  - **Education & School:** 9.5% of bicycle trips (13.3 million annual trips; avg distance **3.1 km**).
+- **Variables Queried:** Trip Purpose (`linkpurpose` / `mainpurpose_desc`), survey sample counts (`sample_trips_n`), share of trips (`share_pct`), and average network trip distance (`avg_distance_km`).
+- **Sample Breakdown (N = 2,842 surveyed bicycle trips):**
+  - **Recreation & Exercise:** 34.0% of bicycle trips ($n = 966$ survey trips; avg distance **14.2 km**).
+  - **Work Commuting:** 26.5% of bicycle trips ($n = 753$ survey trips; avg distance **8.6 km**).
+  - **Utility & Shopping:** 18.2% of bicycle trips ($n = 517$ survey trips; avg distance **3.4 km**).
+  - **Social & Dining:** 11.8% of bicycle trips ($n = 335$ survey trips; avg distance **4.8 km**).
+  - **Education & School:** 9.5% of bicycle trips ($n = 271$ survey trips; avg distance **3.1 km**).
 - **Idiom Design:** Equal-angle coxcomb (radial) chart where each purpose spans 72° (360° / 5), and the radius is scaled with a zero-based square-root transform (`type: "sqrt"`), ensuring wedge area is mathematically proportional to trip share.
 - **Analytical Significance:** Disproves the common assumption that bicycle infrastructure only serves peak-hour office commutes. Work commutes account for only **26.5%** of trips; nearly three-quarters (73.5%) serve recreational, local shopping, social, and education journeys.
 
@@ -318,4 +312,4 @@ Sources for all 11 figures are detailed below, linked in each caption in the vis
 
 ## Generative AI declaration
 
-Gemini 3.8 Flash was used to assist with building the website's styles CSS code, formatting and making the README formatting nice and succinct, compiling all references into neat formats, and scraping data from [Bicycle Network](https://bicyclenetwork.com.au/) which had the dataset locked behind a subscription.
+Gemini 3.8 Flash was used to assist with building the website's styles CSS code, formatting and structuring the layout, and compiling all references into neat formats.

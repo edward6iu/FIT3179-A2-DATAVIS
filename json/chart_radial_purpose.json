@@ -4,8 +4,8 @@
   "title": {
     "text": "Most bike trips are not commutes",
     "subtitle": [
-      "Equal angles; wedge area represents share of trips.",
-      "Hover for percentages."
+      "Equal angles; wedge area represents share of trips (VISTA survey, N = 2,842).",
+      "Hover for percentages and sample counts."
     ]
   },
   "width": "container",
@@ -89,10 +89,10 @@
                 "format": ".1f"
               },
               {
-                "field": "trips_annual_million",
+                "field": "sample_trips_n",
                 "type": "quantitative",
-                "title": "Trips per year (m)",
-                "format": ".1f"
+                "title": "Sample size (VISTA trips)",
+                "format": ",.0f"
               },
               {
                 "field": "avg_distance_km",

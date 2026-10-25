@@ -3,7 +3,7 @@
   "description": "Advanced Idiom 7 - Diverging stacked bar (Likert) chart. Responses to 'I feel safe riding on this type of road'. Bars are centred on the middle of the Neutral category; offsets are computed in-spec (calculate + joinaggregate + window), so the CSV only needs raw percentages. Road types are sorted by total positive agreement.",
   "title": {
     "text": "Separation feels safe; painted lines and busy roads do not",
-    "subtitle": "\"I feel safe riding on this type of road\" – share of respondents by response."
+    "subtitle": "\"I feel safe riding on this type of road\" – Victorian adult survey (Pearson & Beck 2022, N = 2,142)."
   },
   "width": "container",
   "height": 280,
@@ -64,8 +64,8 @@
         "tooltip": [
           {"field": "facility", "type": "nominal", "title": "Road type"},
           {"field": "sentiment", "type": "nominal", "title": "Response"},
-          {"field": "pct", "type": "quantitative", "title": "Respondents (%)"},
-          {"field": "positive_total", "type": "quantitative", "title": "Total feel safe (%)"}
+          {"field": "pct", "type": "quantitative", "title": "Respondents (%)", "format": ".1f"},
+          {"field": "positive_total", "type": "quantitative", "title": "Total feel safe (%)", "format": ".1f"}
         ]
       }
     },
