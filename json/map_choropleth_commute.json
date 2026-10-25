@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Advanced Idiom 1 - Choropleth map. Share of employed residents who rode a bicycle as their only method of travel to work, by Greater Melbourne Local Government Area (ABS Census 2021). Classed (threshold) colour scale so readers compare bands rather than guess exact shades. Projection auto-fits to the container so the map stays responsive.",
+  "description": "Advanced Idiom 1 - Choropleth map. Share of employed residents who cycled to work on Census Day 2021 by Greater Melbourne Local Government Area (ABS 2021 Census QuickStats). Classed (threshold) colour scale so readers compare bands rather than guess exact shades. Projection auto-fits to the container so the map stays responsive.",
   "title": {
     "text": "Cycling to work clusters in inner councils",
     "subtitle": "Hover a council for its name and cycling share."
@@ -68,10 +68,10 @@
           "scale": {
             "type": "threshold",
             "domain": [
+              0.5,
               1,
               2,
-              4,
-              6
+              3
             ],
             "range": [
               "#ecfdf5",

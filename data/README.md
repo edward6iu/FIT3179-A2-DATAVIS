@@ -43,9 +43,35 @@ Source: [Merri-bek City Council, Adopted Budget 2026–2030](https://www.merri-b
 
 ### Figure 1: Choropleth (`melbourne_lga_commute.csv`, `melbourne_lgas.geojson`)
 
-[Source reference](https://www.abs.gov.au/census/guide-census-data/census-dictionary/2021/variables-topic/transport/method-travel-work-mtwp) · [Chart data](melbourne_lga_commute.csv)
+- **Search Portal:** [ABS Search Census Data by Area](https://www.abs.gov.au/census/find-census-data/search-by-area)
+- **Variable Definition:** [ABS Census Dictionary 2021 — Method of Travel to Work (MTWP)](https://www.abs.gov.au/census/guide-census-data/census-dictionary/2021/variables-topic/transport/method-travel-work-mtwp)
+- **Data File:** [Chart data](melbourne_lga_commute.csv)
 
-ABS Census 2021 Method of Travel to Work (MTWP) across 16 Greater Melbourne Local Government Areas.
+#### Council Census QuickStats Links
+- [City of Yarra (LGA27350)](https://www.abs.gov.au/census/find-census-data/quickstats/2021/LGA27350)
+- [City of Melbourne (LGA24600)](https://www.abs.gov.au/census/find-census-data/quickstats/2021/LGA24600)
+- [City of Merri-bek (LGA25250)](https://www.abs.gov.au/census/find-census-data/quickstats/2021/LGA25250)
+- [City of Darebin (LGA21890)](https://www.abs.gov.au/census/find-census-data/quickstats/2021/LGA21890)
+- [City of Port Phillip (LGA25900)](https://www.abs.gov.au/census/find-census-data/quickstats/2021/LGA25900)
+- [City of Boroondara (LGA21110)](https://www.abs.gov.au/census/find-census-data/quickstats/2021/LGA21110)
+- [City of Moonee Valley (LGA25060)](https://www.abs.gov.au/census/find-census-data/quickstats/2021/LGA25060)
+- [City of Stonnington (LGA26350)](https://www.abs.gov.au/census/find-census-data/quickstats/2021/LGA26350)
+- [City of Maribyrnong (LGA24330)](https://www.abs.gov.au/census/find-census-data/quickstats/2021/LGA24330)
+- [City of Glen Eira (LGA22310)](https://www.abs.gov.au/census/find-census-data/quickstats/2021/LGA22310)
+- [City of Bayside (LGA20910)](https://www.abs.gov.au/census/find-census-data/quickstats/2021/LGA20910)
+- [City of Banyule (LGA20660)](https://www.abs.gov.au/census/find-census-data/quickstats/2021/LGA20660)
+- [City of Whitehorse (LGA26980)](https://www.abs.gov.au/census/find-census-data/quickstats/2021/LGA26980)
+- [City of Monash (LGA24970)](https://www.abs.gov.au/census/find-census-data/quickstats/2021/LGA24970)
+- [City of Hobsons Bay (LGA23110)](https://www.abs.gov.au/census/find-census-data/quickstats/2021/LGA23110)
+- [City of Kingston (LGA23430)](https://www.abs.gov.au/census/find-census-data/quickstats/2021/LGA23430)
+
+#### Methodological & Context Note (ABS 2021 Census QuickStats)
+- **Official 2021 Census Proportions:** The dataset uses official ABS 2021 Census figures across the 16 Local Government Areas (e.g. City of Yarra: 4.0%, Merri-bek: 2.8%, Darebin: 2.4%, Melbourne: 2.2%, Port Phillip: 2.2%).
+- **Census Day 2021 (Lockdown 6) Context:** Census night occurred on Tuesday 10 August 2021, when metropolitan Melbourne was under strict lockdown conditions.
+  - In inner councils, between 38% and 47% of employed residents worked from home on Census Day (e.g. 46.9% in City of Yarra, 38.6% in City of Melbourne).
+  - Consequently, raw bicycle commute proportions reflect the entire employed resident population including those working from home.
+  - Among residents who travelled to physical workplaces, bicycle shares were over 9% in top inner councils (such as 9.2% in City of Yarra: 2,260 cyclists among 24,659 physical commuters).
+- **Geography:** Local Government Area (LGA) by Place of Usual Residence (`PURP`).
 
 <a id="figure-2"></a>
 

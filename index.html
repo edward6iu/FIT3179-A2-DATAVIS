@@ -88,13 +88,13 @@
       <div class="pure-g gutters metric-row">
         <div class="pure-u-1 pure-u-sm-1-2 pure-u-lg-1-4">
           <div class="metric-card">
-            <span class="metric-value">8.6%</span>
+            <span class="metric-value">4.0%</span>
             <span class="metric-label">of Yarra residents ride to work, the highest of any Melbourne council</span>
           </div>
         </div>
         <div class="pure-u-1 pure-u-sm-1-2 pure-u-lg-1-4">
           <div class="metric-card">
-            <span class="metric-value">14×</span>
+            <span class="metric-value">10×</span>
             <span class="metric-label">gap between the highest (Yarra) and lowest (Kingston) council shown</span>
           </div>
         </div>
@@ -118,8 +118,8 @@
             <div id="map-choropleth" class="vis-container" role="img" aria-label="Choropleth map of bicycle commuting share by Melbourne local government area"></div>
             <figcaption>
               <strong>Figure 1.</strong> Choropleth map: share of employed residents who cycled to work, by LGA.
-              Source: <a href="https://www.abs.gov.au/census/guide-census-data/census-dictionary/2021/variables-topic/transport/method-travel-work-mtwp" target="_blank" rel="noopener">ABS Census 2021 — Method of Travel to Work (MTWP)</a>.
-             <a href="data/melbourne_lga_commute.csv">Download chart data</a>. <a href="data/README.md#figure-1">Source details</a>.
+              Source: <a href="https://www.abs.gov.au/census/find-census-data/search-by-area" target="_blank" rel="noopener">ABS Census — Method of Travel to Work</a> (<a href="https://www.abs.gov.au/census/guide-census-data/census-dictionary/2021/variables-topic/transport/method-travel-work-mtwp" target="_blank" rel="noopener">MTWP variable</a>).
+             <a href="data/melbourne_lga_commute.csv">Download chart data</a>. <a href="data/README.md#figure-1">Source details &amp; LGA links</a>.
             </figcaption>
           </figure>
         </div>
@@ -127,20 +127,23 @@
           <div class="prose side-notes">
             <h3>An inner-city habit</h3>
             <dl class="council-key" aria-label="Highest cycling shares among the councils shown">
-              <div><dt>Yarra</dt><dd>8.6%</dd></div>
-              <div><dt>Melbourne</dt><dd>5.4%</dd></div>
-              <div><dt>Merri-bek</dt><dd>5.1%</dd></div>
-              <div><dt>Darebin</dt><dd>4.2%</dd></div>
+              <div><dt>Yarra</dt><dd>4.0%</dd></div>
+              <div><dt>Merri-bek</dt><dd>2.8%</dd></div>
+              <div><dt>Darebin</dt><dd>2.4%</dd></div>
+              <div><dt>Melbourne</dt><dd>2.2%</dd></div>
             </dl>
             <p>
-              The darkest councils (Yarra, Melbourne, Merri-bek and Darebin) sit within about 10&nbsp;km of the CBD.
+              The darkest councils (Yarra, Merri-bek, Darebin and Melbourne) sit within about 10&nbsp;km of the CBD.
               They share dense street grids, short distances to jobs, and the oldest parts of the bike network.
             </p>
             <aside class="callout">
               <span class="callout-label">Read the map</span>
               Hover over a council to see its name and exact percentage. Darker green means a larger share of residents ride to work. The colour bands are fixed
-              (&lt;1%, 1–2%, 2–4%, 4–6%, 6%+) so councils can be compared directly.
+              (&lt;0.5%, 0.5–1%, 1–2%, 2–3%, 3%+) so councils can be compared directly.
             </aside>
+            <p class="data-note" style="font-size: 0.85rem; color: var(--text-muted); margin-top: 1rem; border-top: 1px solid var(--border-subtle); padding-top: 0.75rem;">
+              <em>COVID-19 context note:</em> Figures reflect ABS 2021 Census QuickStats. On Census Day (10 August 2021), Melbourne was under Lockdown 6 with 38%–47% of inner-council workers working from home (e.g. 46.9% in Yarra, 38.6% in Melbourne). Among residents who commuted to physical workplaces, bicycle shares were over 9% in top inner councils. See <a href="data/README.md#figure-1">source details &amp; LGA links</a>.
+            </p>
           </div>
         </div>
       </div>
@@ -390,7 +393,7 @@
       <div class="pure-u-1 pure-u-md-1-2">
         <h2 class="footer-heading">Data sources and references — all 11 charts</h2>
         <ol class="sources">
-          <li><strong>Figure 1 — Council cycling shares.</strong> Source: <a href="https://www.abs.gov.au/census/guide-census-data/census-dictionary/2021/variables-topic/transport/method-travel-work-mtwp" target="_blank" rel="noopener">ABS Census 2021 — Method of Travel to Work (MTWP)</a>. <a href="data/melbourne_lga_commute.csv">Download chart data</a>. <a href="data/README.md#figure-1">Source details</a>.</li>
+          <li><strong>Figure 1 — Council cycling shares.</strong> Source: <a href="https://www.abs.gov.au/census/find-census-data/search-by-area" target="_blank" rel="noopener">ABS Census — Method of Travel to Work</a> (<a href="https://www.abs.gov.au/census/guide-census-data/census-dictionary/2021/variables-topic/transport/method-travel-work-mtwp" target="_blank" rel="noopener">MTWP variable</a>). <a href="data/melbourne_lga_commute.csv">Download chart data</a>. <a href="data/README.md#figure-1">Source details &amp; LGA links</a>.</li>
           <li><strong>Figure 2 — Short-trip travel modes.</strong> Source: <a href="https://opendata.transport.vic.gov.au/dataset/victorian-integrated-survey-of-travel-and-activity-vista?v=2" target="_blank" rel="noopener">Transport Victoria — VISTA Data Collection</a>. <a href="data/short_trips_mode.csv">Download chart data</a>. <a href="data/README.md#figure-2">Source details</a>.</li>
           <li><strong>Figure 3 — Cycling routes and infrastructure.</strong> Source: <a href="https://www.vic.gov.au/bicycle-network-planning" target="_blank" rel="noopener">Victorian DTP — Strategic Cycling Corridors &amp; Network Planning</a>. <a href="data/cycling_routes.geojson">Download chart data</a>. <a href="data/README.md#figure-3">Source details</a>.</li>
           <li><strong>Figure 4 — Transport allocation rankings.</strong> Source: <a href="https://www.merri-bek.vic.gov.au/globalassets/website-merri-bek/areas/my-council/about-council/council-budget/merri-bek-city-council-2026-30-budget---adopted.pdf#page=104" target="_blank" rel="noopener">Merri-bek Adopted Budget 2026–2030, Appendix B, PDF pp. 104–105</a>. <a href="data/merri_bek_transport_budget.csv">Download chart data</a>. <a href="data/README.md#figure-4">Source details</a>.</li>

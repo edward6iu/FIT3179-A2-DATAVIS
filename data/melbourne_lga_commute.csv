@@ -1,17 +1,17 @@
 LGA_NAME,short_name,region,commute_cycling_pct,total_workers,bike_commuters,rank_2021
-City of Yarra,Yarra,Inner Metro,8.6,58200,5005,1
-City of Melbourne,Melbourne,Inner Metro,5.4,94100,5081,2
-City of Merri-bek,Merri-bek,Inner-North Metro,5.1,88400,4508,3
-City of Darebin,Darebin,Inner-North Metro,4.2,79600,3343,4
-City of Port Phillip,Port Phillip,Inner-South Metro,3.8,62500,2375,5
-City of Boroondara,Boroondara,Inner-East Metro,2.1,85100,1787,6
-City of Moonee Valley,Moonee Valley,Inner-West Metro,1.6,61200,979,7
-City of Stonnington,Stonnington,Inner-East Metro,2.3,59300,1364,8
-City of Maribyrnong,Maribyrnong,Inner-West Metro,1.9,47500,903,9
-City of Glen Eira,Glen Eira,Middle-South Metro,1.3,74800,972,10
-City of Bayside,Bayside,Middle-South Metro,1.5,49200,738,11
-City of Banyule,Banyule,Middle-North Metro,1.2,63400,761,12
-City of Whitehorse,Whitehorse,Middle-East Metro,0.9,83900,755,13
-City of Monash,Monash,Middle-East Metro,0.8,89200,714,14
-City of Hobsons Bay,Hobsons Bay,Middle-West Metro,1.1,46100,507,15
-City of Kingston,Kingston,Outer-South Metro,0.6,79500,477,16
+City of Yarra,Yarra,Inner Metro,4.0,57172,2260,1
+City of Merri-bek,Merri-bek,Inner-North Metro,2.8,93053,2620,2
+City of Darebin,Darebin,Inner-North Metro,2.4,79088,1890,3
+City of Melbourne,Melbourne,Inner Metro,2.2,90345,2010,4
+City of Port Phillip,Port Phillip,Inner-South Metro,2.2,61015,1356,5
+City of Stonnington,Stonnington,Inner-East Metro,1.3,61369,808,6
+City of Maribyrnong,Maribyrnong,Inner-West Metro,1.3,47058,635,7
+City of Boroondara,Boroondara,Inner-East Metro,0.9,86992,783,8
+City of Moonee Valley,Moonee Valley,Inner-West Metro,0.9,64211,578,9
+City of Bayside,Bayside,Middle-South Metro,0.8,50508,402,10
+City of Glen Eira,Glen Eira,Middle-South Metro,0.7,79623,586,11
+City of Hobsons Bay,Hobsons Bay,Middle-West Metro,0.7,45020,309,12
+City of Banyule,Banyule,Middle-North Metro,0.6,63917,383,13
+City of Kingston,Kingston,Outer-South Metro,0.4,81285,325,14
+City of Monash,Monash,Middle-East Metro,0.4,92077,368,15
+City of Whitehorse,Whitehorse,Middle-East Metro,0.4,83329,333,16
