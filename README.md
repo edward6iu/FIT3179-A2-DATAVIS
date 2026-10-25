@@ -22,9 +22,9 @@ A single scrolling page for an Australian general audience. Four sections explai
 | Flows | 100% stacked area | Compare commuting mode composition over time |
 | Safety | Diverging Likert bars | Compare safety responses |
 | Safety | Equal-angle coxcomb | Compare purpose shares by wedge area |
-| Safety | Grouped bars | Compare gender counts at selected corridors |
+| Safety | Butterfly chart | Compare corridor gender splits outward from a central zero axis |
 
-There are 11 charts and three distinct map idioms. Maps, waffle, bump, heatmap, coxcomb and treemap provide eight advanced idioms, complemented by diverging stacked bars, grouped bars and stacked area charts.
+There are 11 charts and three distinct map idioms. Specifically, waffle, bump, treemap, heatmap, coxcomb, and butterfly chart provide advanced statistical idioms on the curriculum whitelist, alongside three distinct spatial map idioms (choropleth, polyline network, and proportional symbols), a diverging Likert bar chart, and a stacked area chart.
 
 ## Implementation
 
@@ -289,11 +289,16 @@ Sources for all 11 figures are detailed below, linked in each caption in the vis
 
 <a id="figure-11"></a>
 
-#### Figure 11: Corridor gender counts grouped bars (`data/corridor_gender_split.csv`)
+#### Figure 11: Corridor gender split butterfly chart (`data/corridor_gender_split.csv`)
 
 - **Primary Data Portal:** [City of Melbourne Open Data — Annual Bike Counts (Super Tuesday)](https://data.melbourne.vic.gov.au/explore/dataset/annual-bike-counts-super-tuesday/)
 - **Survey Methodology:** [Bicycle Network Australia — Super Counts Methodology](https://bicyclenetwork.com.au/our-services/transport-surveys-and-data/super-counts/)
 - **Data File:** [Chart data](data/corridor_gender_split.csv)
+
+##### Idiom Design & Advanced Classification
+- **Idiom Classification:** Advanced Idiom — Butterfly chart (bidirectional diverging horizontal bar chart).
+- **Visual Encoding:** Female rider volumes extend to the left of the central zero baseline (`x = 0`) in teal (`#0d9488`), while male rider volumes extend to the right in slate (`#475569`). Both cohorts share a continuous horizontal quantitative scale, formatted with non-negative absolute tick labels (`abs(datum.value)`).
+- **Design Rationale:** Unlike a grouped bar chart (which places bars side-by-side on a one-directional axis and is classified as a basic idiom), a butterfly chart mirrors the two cohorts across a common central spine. This produces a distinctive silhouette (the "butterfly wings") that immediately communicates the structural asymmetry between male and female participation across differing corridor environments.
 
 ##### Survey Background & Methodology
 - **Data Provider:** City of Melbourne in partnership with Bicycle Network Australia (CC BY 4.0).

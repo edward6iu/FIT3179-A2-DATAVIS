@@ -1,65 +1,246 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Standard Idiom 2 - Grouped (horizontal) bar chart. Super Tuesday morning-peak riders by gender at six key corridors. Horizontal orientation keeps long corridor names readable on narrow screens. Corridors are sorted by female share, which is printed beside each female bar.",
+  "description": "Advanced Idiom - Butterfly (Bidirectional Divergent) Chart. Morning-peak Super Tuesday commuter volumes by gender across six key Melbourne corridors. Female counts extend to the left of the central spine; male counts extend to the right.",
   "title": {
     "text": "Women make up as little as 17% of riders on some corridors",
-    "subtitle": "Super Tuesday AM-peak riders (7–9 am) by gender; % = female share. Sorted by female share."
+    "subtitle": "Super Tuesday AM-peak riders (7\u20139 am) by gender; female (left) vs male (right). Sorted by female share."
   },
   "width": "container",
   "height": 340,
-  "data": {"url": "data/corridor_gender_split.csv"},
+  "data": {
+    "url": "data/corridor_gender_split.csv"
+  },
   "transform": [
-    {"joinaggregate": [{"op": "sum", "field": "riders", "as": "corridor_total"}], "groupby": ["corridor"]},
-    {"calculate": "datum.riders / datum.corridor_total", "as": "share"},
-    {"calculate": "datum.gender === 'Female' ? datum.share : 0", "as": "f_share_part"},
-    {"joinaggregate": [{"op": "max", "field": "f_share_part", "as": "female_share"}], "groupby": ["corridor"]}
+    {
+      "joinaggregate": [
+        {
+          "op": "sum",
+          "field": "riders",
+          "as": "corridor_total"
+        }
+      ],
+      "groupby": [
+        "corridor"
+      ]
+    },
+    {
+      "calculate": "datum.riders / datum.corridor_total",
+      "as": "share"
+    },
+    {
+      "calculate": "datum.gender === 'Female' ? datum.share : 0",
+      "as": "f_share_part"
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "max",
+          "field": "f_share_part",
+          "as": "female_share"
+        }
+      ],
+      "groupby": [
+        "corridor"
+      ]
+    },
+    {
+      "calculate": "datum.gender === 'Female' ? -datum.riders : datum.riders",
+      "as": "signed_riders"
+    },
+    {
+      "calculate": "split(datum.corridor, ' (')[0]",
+      "as": "corridor_short"
+    },
+    {
+      "calculate": "datum.riders + ' (' + format(datum.share, '.0%') + ')'",
+      "as": "label_text"
+    }
   ],
   "encoding": {
     "y": {
-      "field": "corridor",
+      "field": "corridor_short",
       "type": "nominal",
       "title": null,
-      "sort": {"field": "female_share", "op": "max", "order": "descending"},
-      "axis": {"ticks": false, "domain": false, "labelLimit": 180}
-    },
-    "yOffset": {"field": "gender", "type": "nominal", "sort": ["Female", "Male"]},
-    "x": {
-      "field": "riders",
-      "type": "quantitative",
-      "title": "Riders counted (7–9 am)",
-      "scale": {"domain": [0, 1200]},
-      "axis": {"format": ",.0f", "tickCount": 4}
+      "sort": {
+        "field": "female_share",
+        "op": "max",
+        "order": "descending"
+      },
+      "axis": {
+        "ticks": false,
+        "domain": false,
+        "labelLimit": 120,
+        "labelFontWeight": 600
+      }
     }
   },
   "layer": [
     {
-      "mark": {"type": "bar", "cornerRadiusEnd": 3},
+      "mark": {
+        "type": "rule",
+        "color": "#94a3b8",
+        "strokeWidth": 1.5,
+        "strokeDash": [
+          3,
+          3
+        ]
+      },
       "encoding": {
+        "x": {
+          "datum": 0
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "bar",
+        "height": 22,
+        "cornerRadius": 3
+      },
+      "encoding": {
+        "x": {
+          "field": "signed_riders",
+          "type": "quantitative",
+          "title": "\u2190 Female riders (7\u20139 am) | Male riders (7\u20139 am) \u2192",
+          "scale": {
+            "domain": [
+              -1250,
+              1380
+            ]
+          },
+          "axis": {
+            "tickCount": 5,
+            "labelExpr": "abs(datum.value)"
+          }
+        },
         "color": {
           "field": "gender",
           "type": "nominal",
           "title": null,
-          "sort": ["Female", "Male"],
-          "scale": {"domain": ["Female", "Male"], "range": ["#0d9488", "#94a3b8"]},
-          "legend": {"orient": "top", "direction": "horizontal"}
+          "sort": [
+            "Female",
+            "Male"
+          ],
+          "scale": {
+            "domain": [
+              "Female",
+              "Male"
+            ],
+            "range": [
+              "#0d9488",
+              "#475569"
+            ]
+          },
+          "legend": {
+            "orient": "top",
+            "direction": "horizontal"
+          }
         },
         "tooltip": [
-          {"field": "corridor", "type": "nominal", "title": "Corridor"},
-          {"field": "gender", "type": "nominal", "title": "Gender"},
-          {"field": "riders", "type": "quantitative", "title": "Riders", "format": ",.0f"},
-          {"field": "share", "type": "quantitative", "title": "Share of corridor", "format": ".0%"}
+          {
+            "field": "corridor",
+            "type": "nominal",
+            "title": "Corridor"
+          },
+          {
+            "field": "gender",
+            "type": "nominal",
+            "title": "Gender"
+          },
+          {
+            "field": "riders",
+            "type": "quantitative",
+            "title": "Riders (7\u20139 am)",
+            "format": ",.0f"
+          },
+          {
+            "field": "share",
+            "type": "quantitative",
+            "title": "Share of Corridor",
+            "format": ".1%"
+          },
+          {
+            "field": "corridor_total",
+            "type": "quantitative",
+            "title": "Total Corridor Riders",
+            "format": ",.0f"
+          }
         ]
       }
     },
     {
-      "transform": [{"filter": "datum.gender === 'Female'"}],
-      "mark": {"type": "text", "align": "left", "dx": 4, "fontSize": 10.5, "fontWeight": 700, "fill": "#0f766e"},
-      "encoding": {"text": {"field": "share", "type": "quantitative", "format": ".0%"}}
+      "transform": [
+        {
+          "filter": "datum.gender === 'Female'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -5,
+        "fontSize": 10,
+        "fontWeight": 600,
+        "fill": "#0f766e"
+      },
+      "encoding": {
+        "x": {
+          "field": "signed_riders",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label_text",
+          "type": "nominal"
+        }
+      }
     },
     {
-      "transform": [{"filter": "datum.gender === 'Male' && datum.female_share < 0.2"}],
-      "mark": {"type": "text", "align": "left", "dx": 6, "fontSize": 10.5, "fontStyle": "italic", "fill": "#b91c1c"},
-      "encoding": {"text": {"value": "← lowest female share"}}
+      "transform": [
+        {
+          "filter": "datum.gender === 'Male'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 5,
+        "fontSize": 10,
+        "fontWeight": 600,
+        "fill": "#334155"
+      },
+      "encoding": {
+        "x": {
+          "field": "signed_riders",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label_text",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.gender === 'Male' && datum.female_share < 0.2"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 60,
+        "fontSize": 9.5,
+        "fontStyle": "italic",
+        "fill": "#b91c1c"
+      },
+      "encoding": {
+        "x": {
+          "field": "signed_riders",
+          "type": "quantitative"
+        },
+        "text": {
+          "value": "\u2190 17% female (lowest)"
+        }
+      }
     }
   ]
 }

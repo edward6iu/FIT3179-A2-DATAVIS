@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       id: "#chart-grouped-bar",
       spec: "json/chart_grouped_bar_gender.json",
-      name: "Grouped Bar Chart: Corridor Gender Split (Comparative Trend 2)"
+      name: "Butterfly Chart: Corridor Gender Split (Advanced Idiom 8)"
     }
   ];
 
